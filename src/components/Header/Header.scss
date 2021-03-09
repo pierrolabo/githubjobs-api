@@ -1,9 +1,30 @@
 .header {
     background-image: url(../../assets/mobile/bg-pattern-header.svg);
-    background-repeat: no-repeat;
     background-size: cover;
+    background-repeat: round;
+    //  Tablet
+    @media(min-width: 375px) {
+        background-image: url(../../assets/tablet/bg-pattern-header.svg);
+        max-height: 162px;
+        height: 160px;
+    }
+    //  Desktop
+    @media(min-width: 1440px) {
+        background-image: url(../../assets/desktop/bg-pattern-header.svg);
+        height: 162px;
+        }
     &__container {
-        padding: 31px 24px 72px 24px;
+        padding: 32px 41px 80px 18px;
+    //  Tablet
+    @media(min-width: 375px) {
+        padding: 42px 42px 93px 39px;
+
+    }
+    //  Desktop
+    @media(min-width: 1440px) {
+        padding: 44px 42px 165px 165px;
+
+    }
         display: flex;
         justify-content: space-between;
     }
