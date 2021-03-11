@@ -10,13 +10,23 @@
         border-radius: 8px;
         background: #fff;
         padding: 20px 0;
+        //  Dark Mode
+        body.dark-mode &{
+            background: $brand-secondary-dark;
+        }
         &--input {
            border: 0;
            display: flex;
            max-width: 55%;
+           //  Dark Mode
+        body.dark-mode &{
+            background: $brand-secondary-dark;
+            color: #fff;
+        }
            &:focus {
                outline: none;
            }
+
         }
         &__icons {
             display: flex;
@@ -31,6 +41,11 @@
                     -webkit-mask: url(../../assets/mobile/icon-filter.svg) no-repeat center;
                     mask: url(../../assets/mobile/icon-filter.svg) no-repeat center;
                     background-color: $color-dark-grey;
+                    //  Dark Mode
+                    body.dark-mode &{
+                        background: $brand-secondary-dark;
+                        background-color: #fff;
+                    }
                 }
                 }
                 
