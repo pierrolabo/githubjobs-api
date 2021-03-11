@@ -1,0 +1,58 @@
+.header__themetoggler {
+&__container {
+    display: flex;
+    justify-content: center;
+    &--label {
+        margin: 0 1.5rem;
+            cursor: pointer;
+            text-indent: -9999px;
+            width: 49px;
+            height: 25px;
+            background: #fff;
+            display: block;
+            border-radius: 100px;
+            position: relative;
+            &:after {
+                content: '';
+                position: absolute;
+                top: 5px;
+                left: 5px;
+                width: 14px;
+                height: 14px;
+                background: #5964E0;
+                border-radius: 90px;
+                transition: 0.3s;
+            }
+           
+    }
+    &--input {
+       &[type=checkbox]{
+            height: 0;
+            width: 0;
+            visibility: hidden;
+            display: none;
+        }
+        &:checked + label:after {
+            left: calc(100% - 5px);
+            transform: translateX(-100%);
+        }
+    }
+    &--ico {
+        &--moon {
+            height: 100%;
+        }
+        &--sun {
+            height: 100%;
+
+        }
+    }
+}
+&__ico {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &__container {
+        height: 60%;
+    }
+}
+}

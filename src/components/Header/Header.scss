@@ -14,15 +14,15 @@
         height: 162px;
         }
     &__container {
-        padding: 32px 41px 80px 18px;
+        padding: 32px 22px 80px 18px;
     //  Tablet
     @media(min-width: 375px) {
-        padding: 42px 42px 93px 39px;
+        padding: 42px 40px 93px 39px;
 
     }
     //  Desktop
     @media(min-width: 1440px) {
-        padding: 44px 42px 165px 165px;
+        padding: 44px 164px 165px 165px;
 
     }
         display: flex;

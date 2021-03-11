@@ -2,6 +2,8 @@
 import './Header.scss'
 import logo from '../../assets/desktop/logo.svg';
 
+import ThemeToggler from '../ThemeToggler/ThemeToggler'
+
 const Header = () => {
     return (
         <header className="header">
@@ -10,7 +12,7 @@ const Header = () => {
                     <img src={logo} alt="Logo"/>
                 </a>
                 <div>
-                    <p>Switch</p>
+                    <ThemeToggler/>
                 </div>
             </div>
         </header>
