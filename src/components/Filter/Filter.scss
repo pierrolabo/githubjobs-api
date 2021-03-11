@@ -1,0 +1,50 @@
+@import '../../styles/variables';
+
+.filter {
+    padding: 0 24px;
+    transform: translateY(-50%);
+
+    &__container {
+        display: flex;
+        justify-content: space-around;
+        border-radius: 8px;
+        background: #fff;
+        padding: 20px 0;
+        &--input {
+           border: 0;
+           display: flex;
+           max-width: 55%;
+           &:focus {
+               outline: none;
+           }
+        }
+        &__icons {
+            display: flex;
+           &--filterlogo__container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-right: 18px;
+                &--logo {
+                    width: 20px;
+                    height: 20px;
+                    -webkit-mask: url(../../assets/mobile/icon-filter.svg) no-repeat center;
+                    mask: url(../../assets/mobile/icon-filter.svg) no-repeat center;
+                    background-color: $color-dark-grey;
+                }
+                }
+                
+            
+            &--searchlogo__container  {
+                background-color: $color-button-default;
+                border-radius: 5px;
+                & img {
+                    padding: 9px 11px;
+                    fill: #fff;
+                    color: #fff;
+                }
+            }
+        }
+
+    }
+}
