@@ -11,3 +11,11 @@ html {
   font-size: 12px;
   box-sizing: border-box;
 }
+
+body {
+  background-color: $color-white;
+  &.dark-mode {
+    background-color: $color-very-dark-blue;
+    color: white;
+  }
+}
