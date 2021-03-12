@@ -11,6 +11,15 @@
         border-radius: 8px;
         background: #fff;
         padding: 20px 0;
+        //  Tablet
+        @media(min-width: 415px) {
+            width: 100%;
+            max-width: 96.5%;
+            max-height: 80px;
+            justify-content: space-between;
+            padding: 15px 17px;
+
+        }
         //  Dark Mode
         body.dark-mode &{
             background: $brand-secondary-dark;
@@ -55,7 +64,6 @@
                 background-color: $color-button-default;
                 border-radius: 5px;
                 &--search {
-                border: 1px solid green;
                 padding: 16px 4px;
                     //fill: #fff;
                     //color: #fff;
@@ -64,6 +72,7 @@
                     background-color: #fff;
                     @media(min-width: 750px) {
                         mask: none !important;
+                        padding: 0;
                         span {
                             display: flex;
                             visibility: visible !important;
