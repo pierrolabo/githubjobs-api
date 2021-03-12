@@ -19,3 +19,17 @@ body {
     color: white;
   }
 }
+
+//  Helpers
+.hide-on-mobile {
+  display: none;
+  @media(min-width: $breakpoint-tablet) {
+  display: flex;
+}
+}
+.hide-on-tablet {
+  display: none;
+  @media(max-width: $breakpoint-tablet) {
+  display: flex;
+}
+}

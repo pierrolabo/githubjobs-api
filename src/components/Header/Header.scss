@@ -1,15 +1,17 @@
+@import '../../styles/variables';
+
 .header {
     background-image: url(../../assets/mobile/bg-pattern-header.svg);
     background-size: cover;
     background-repeat: round;
     //  Tablet
-    @media(min-width: 415px) {
+    @media(min-width: $breakpoint-tablet) {
         background-image: url(../../assets/tablet/bg-pattern-header.svg);
         max-height: 162px;
         height: 160px;
     }
     //  Desktop
-    @media(min-width: 1440px) {
+    @media(min-width: $breakpoint-desktop) {
         background-image: url(../../assets/desktop/bg-pattern-header.svg);
         height: 162px;
         }

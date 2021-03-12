@@ -1,65 +1,149 @@
 @import '../../styles/variables';
 
-.filter {
-    padding: 0 24px;
+.filter__container {
     transform: translateY(-50%);
-
-    &__container {
+    display: flex;
+    justify-content: center;
+}
+.filter {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 8px;
+    background: #fff;
+    max-width: 91%;
+    height: 80px;
+    padding: 16px 16px;
+    @media(min-width: $breakpoint-tablet) {
+        min-width: 84.7%;
+    }
+    &__searchField {
         display: flex;
-        justify-content: space-around;
-        border-radius: 8px;
-        background: #fff;
-        padding: 20px 0;
-        //  Dark Mode
-        body.dark-mode &{
-            background: $brand-secondary-dark;
+        align-items: center;
+        height: 100%;
+        max-width: 30%;
+        width: 100%;
+        max-width: 68%;
+        @media(min-width: $breakpoint-tablet) {
+            max-width: 30.2%;;
+            height: 80px;
+            border-right: 1px solid $color-dark-grey;
         }
-        &--input {
-           border: 0;
-           display: flex;
-           max-width: 55%;
-           //  Dark Mode
-        body.dark-mode &{
-            background: $brand-secondary-dark;
-            color: #fff;
+        @media(min-width: $breakpoint-desktop) {
+            width: 100%;
+            max-width: 80%;
         }
-           &:focus {
-               outline: none;
-           }
-
-        }
-        &__icons {
-            display: flex;
-           &--filterlogo__container {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                margin-right: 18px;
-                &--logo {
-                    width: 20px;
-                    height: 20px;
-                    -webkit-mask: url(../../assets/mobile/icon-filter.svg) no-repeat center;
-                    mask: url(../../assets/mobile/icon-filter.svg) no-repeat center;
-                    background-color: $color-dark-grey;
-                    //  Dark Mode
-                    body.dark-mode &{
-                        background: $brand-secondary-dark;
-                        background-color: #fff;
-                    }
-                }
-                }
-                
-            
-            &--searchlogo__container  {
+        &__logo {
+            margin-right: 16px;
+            &--searchLogo {
+                width: 24px;
+                height: 24px;
+                -webkit-mask: url(../../assets/desktop/icon-search.svg) no-repeat center;
+                        mask: url(../../assets/desktop/icon-search.svg) no-repeat center;
                 background-color: $color-button-default;
-                border-radius: 5px;
-                & img {
-                    padding: 9px 11px;
-                    fill: #fff;
-                    color: #fff;
-                }
             }
         }
+        &--input {
+            display: flex;
+            border-radius: 8px;
+            border: none;
+            @media(min-width: $breakpoint-tablet) {
+                max-width: 60%;
+            }
+            &:focus {
+                outline: none;
+            }
+        }
+    }
+    &__searchOptions__filterByLocation {
+        display: flex;
+        align-items: baseline;
+        max-width: 32.5%;
+        border-right: 1px solid $color-dark-grey;
+        &__logo {
+            margin-left: 16px;
+            margin-right: 24px;
+            &--locationLogo {
+                width: 24px;
+                height: 24px;
+                -webkit-mask: url(../../assets/desktop/icon-location.svg) no-repeat center;
+                        mask: url(../../assets/desktop/icon-location.svg) no-repeat center;
+                background-color: $color-button-default;
+            }
+        }
+        &--input {
+            height: 80px;
+            border: none;
+            max-width: 60%;
 
+
+        }
+    }
+    &__searchOptions {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        height: 80px;
+        @media(min-width: $breakpoint-desktop) {
+            max-width: 22%;
+        }
+        &__filter {
+        &--logo {
+            width: 20px;
+            height: 20px;
+            -webkit-mask: url(../../assets/mobile/icon-filter.svg) no-repeat center;
+            mask: url(../../assets/mobile/icon-filter.svg) no-repeat center;
+            background-color: $color-dark-grey;
+        }
+    }
+        &__timeOption {
+            display: flex;
+            align-items: center;
+            &--input {
+                margin: 0 20px;
+                width: 24px;
+                height: 24px;
+            }
+            & label {
+                color: #19202D;
+                font-weight: bold;
+                font-size: 16px;
+                margin-right: 26px;
+            }
+        }
+        &__searchButton {
+            display: flex;
+            background-color: $color-button-default;
+            border-radius: 6px;
+            &--logo {
+                width: 48px;
+                height: 48px;
+
+                -webkit-mask: url(../../assets/desktop/icon-search.svg) no-repeat center;
+                        mask: url(../../assets/desktop/icon-search.svg) no-repeat center;
+                        background-color: #fff;
+
+            }
+            @media(min-width: $breakpoint-tablet) {
+                &--logo {
+                        mask: none !important;
+                        width: 80px;
+                        height: 48px;
+                        span {
+                            display: flex;
+                            justify-content: center;
+                            visibility: visible;
+                            background-color: $color-button-default;
+                            border-radius: 5px;
+                            color: #fff;
+                            font-weight: bold;
+                            font-size: 16px;
+                            padding: 17px 21px;
+
+                        }
+                }
+            }
+        }    
     }
 }
