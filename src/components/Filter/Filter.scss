@@ -1,45 +1,144 @@
 @import '../../styles/variables';
 
+.filter__container {
+    transform: translateY(-50%);
+
+    display: flex;
+    justify-content: center;
+}
 .filter {
-    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 8px;
+        background: #fff;
+    max-width: 91%;
+    height: 80px;
+    padding: 16px 16px;
+
+    &__searchField {
+        height: 100%;
+        max-width: 30%;
+        &--input {
+            height: 100%;
+            border-radius: 8px;
+            border: none;
+            &:focus {
+                outline: none;
+            }
+        }
+    }
+    
+    &__searchOptions {
+        display: flex;
+        align-items: center;
+        min-width: 36%;
+                justify-content: space-between;
+                &__filter {
+                    display: flex;
+                    margin-left: 4px;
+                    &--logo {
+                        width: 20px;
+                    height: 20px;
+                    -webkit-mask: url(../../assets/mobile/icon-filter.svg) no-repeat center;
+                    mask: url(../../assets/mobile/icon-filter.svg) no-repeat center;
+                    background-color: $color-dark-grey;
+                    //  Dark Mode
+                    body.dark-mode &{
+                        background: $brand-secondary-dark;
+                        background-color: #fff;
+                    }
+                    }
+                }
+        &__searchButton {
+            display: flex;
+            background-color: $color-button-default;
+            border-radius: 6px;
+            &--logo {
+                width: 48px;
+                height: 48px;
+
+                -webkit-mask: url(../../assets/desktop/icon-search.svg) no-repeat center;
+                        mask: url(../../assets/desktop/icon-search.svg) no-repeat center;
+                        background-color: #fff;
+
+            }
+        }            
+    }
+
+}
+
+/*
+.filter {
+    //padding: 0 24px;
+    //padding: 32px 22px 80px 18px;
+
+    max-height: 80px;
+    height: 80px;
     transform: translateY(-50%);
     display: flex;
     justify-content: center;
+    min-width: 100%;
+    
     &__container {
         display: flex;
+        max-width: 90%;
         justify-content: space-around;
         border-radius: 8px;
         background: #fff;
-        padding: 20px 0;
+        padding: 16px 16px;
         //  Tablet
         @media(min-width: 415px) {
             width: 100%;
             max-width: 96.5%;
             max-height: 80px;
             justify-content: space-between;
-            padding: 15px 17px;
+            //padding: 15px 17px;
 
         }
         //  Dark Mode
         body.dark-mode &{
             background: $brand-secondary-dark;
         }
-        &--input {
-           border: 0;
-           display: flex;
-           max-width: 55%;
-           //  Dark Mode
-        body.dark-mode &{
-            background: $brand-secondary-dark;
-            color: #fff;
-        }
-           &:focus {
-               outline: none;
-           }
-
+        &__searchField {
+            display: flex;
+            //tablet
+            //margin: 10px 10px;
+            &--input {
+               border: 0;
+               display: flex;
+               max-width: 55%;
+               border-right: 1px solid red;
+               &--filterLogo--container {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+               }
+               &--filterlogo {
+                width: 24px;
+                height: 24px;
+                margin-right: 15px;
+                -webkit-mask: url(../../assets/desktop/icon-search.svg) no-repeat center;
+                        mask: url(../../assets/desktop/icon-search.svg) no-repeat center;
+                background-color: $color-button-default;
+               }
+               //  Dark Mode
+            body.dark-mode &{
+                background: $brand-secondary-dark;
+                color: #fff;
+            }
+               &:focus {
+                   outline: none;
+               }
+    
+            }
+           
         }
         &__icons {
             display: flex;
+            //table
+            //margin: 10px 10px;
+
            &--filterlogo__container {
                 display: flex;
                 justify-content: center;
@@ -91,3 +190,4 @@
     }
 }
 }
+*/
