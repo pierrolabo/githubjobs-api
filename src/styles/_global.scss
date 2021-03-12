@@ -23,7 +23,13 @@ body {
 //  Helpers
 .hide-on-mobile {
   display: none;
-  @media(min-width: 415px) {
+  @media(min-width: $breakpoint-tablet) {
+  display: flex;
+}
+}
+.hide-on-tablet {
+  display: none;
+  @media(max-width: $breakpoint-tablet) {
   display: flex;
 }
 }

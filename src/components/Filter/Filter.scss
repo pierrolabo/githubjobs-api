@@ -15,6 +15,9 @@
     max-width: 91%;
     height: 80px;
     padding: 16px 16px;
+    @media(min-width: $breakpoint-tablet) {
+        min-width: 84.7%;
+    }
 
     &__searchField {
         height: 100%;
@@ -62,6 +65,22 @@
                         mask: url(../../assets/desktop/icon-search.svg) no-repeat center;
                         background-color: #fff;
 
+            }
+            @media(min-width: $breakpoint-tablet) {
+                &--logo {
+                        mask: none !important;
+                        width: 80px;
+                        height: 48px;
+                        span {
+                            display: flex;
+                            visibility: visible;
+                            background-color: $color-button-default;
+                            border-radius: 5px;
+                            color: #fff;
+                            padding: 17px 21px;
+
+                        }
+                }
             }
         }            
     }

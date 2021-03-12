@@ -13,7 +13,7 @@ const Filter = () => {
                 </div>
             <div className="filter__searchOptions">
                 <div className="filter__searchOptions__filter">
-                    <div className="filter__searchOptions__filter--logo"/>
+                    <div className="filter__searchOptions__filter--logo hide-on-tablet"/>
                 </div>
                 <div className="filter__searchOptions__searchButton">
                     <div className="filter__searchOptions__searchButton--logo"><span className="filter__searchOptions__searchButton--text hide-on-mobile">Search</span></div>
