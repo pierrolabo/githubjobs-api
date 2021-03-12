@@ -19,3 +19,11 @@ body {
     color: white;
   }
 }
+
+//  Helpers
+.hide-on-mobile {
+  display: none;
+  @media(min-width: 415px) {
+  display: flex;
+}
+}
