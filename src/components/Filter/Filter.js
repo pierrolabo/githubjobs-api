@@ -11,7 +11,7 @@ const Filter = () => {
                 <div className="filter__container__icons--filterlogo__container--logo"/>
             </div>
             <div className="filter__container__icons--searchlogo__container">
-                <img src={searchLogo} alt=""/>
+                <div className="filter__container__icons--searchlogo__container--search"><span style={{visibility: 'hidden'}}>Search</span></div>
             </div>
             </div>
             </div>

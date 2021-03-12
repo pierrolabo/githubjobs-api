@@ -3,7 +3,8 @@
 .filter {
     padding: 0 24px;
     transform: translateY(-50%);
-
+    display: flex;
+    justify-content: center;
     &__container {
         display: flex;
         justify-content: space-around;
@@ -53,13 +54,31 @@
             &--searchlogo__container  {
                 background-color: $color-button-default;
                 border-radius: 5px;
-                & img {
-                    padding: 9px 11px;
-                    fill: #fff;
-                    color: #fff;
-                }
+                &--search {
+                border: 1px solid green;
+                padding: 16px 4px;
+                    //fill: #fff;
+                    //color: #fff;
+                    -webkit-mask: url(../../assets/desktop/icon-search.svg) no-repeat center;
+                    mask: url(../../assets/desktop/icon-search.svg) no-repeat center;
+                    background-color: #fff;
+                    @media(min-width: 750px) {
+                        mask: none !important;
+                        span {
+                            display: flex;
+                            visibility: visible !important;
+                            background-color: $color-button-default;
+                            border-radius: 5px;
+                            color: #fff;
+                            padding: 17px 21px;
+
+                        }
+                       
+                     }
+                    
             }
         }
 
     }
+}
 }
