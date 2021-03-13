@@ -8,11 +8,10 @@
 .filter {
     display: flex;
     align-items: center;
-    justify-content: space-between;
     border-radius: 8px;
     background: #fff;
     max-width: 91%;
-    height: 80px;
+    height: 90px;
     padding: 16px 16px;
     @media(min-width: $breakpoint-tablet) {
         min-width: 84.7%;
@@ -100,6 +99,7 @@
         &__timeOption {
             display: flex;
             align-items: center;
+            margin-top: 4px;
             &--input {
                 margin: 0 20px;
                 width: 24px;
@@ -110,6 +110,17 @@
                 font-weight: bold;
                 font-size: 16px;
                 margin-right: 26px;
+                @media(min-width: $breakpoint-desktop) {
+                    font-size: 0;
+                    
+                    margin-right: 0 !important;
+                    &::after {
+                        content: "Full Time Only";
+                        font-size: 16px;
+                        font-weight: bold;
+                    }
+
+                }
             }
         }
         &__searchButton {
