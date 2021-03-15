@@ -25,7 +25,8 @@ const Filter = () => {
                     <label for="timeoption">Full Time</label>
                 </div>
                 <div className="filter__searchOptions__searchButton">
-                    <div className="filter__searchOptions__searchButton--logo"><span className="filter__searchOptions__searchButton--text hide-on-mobile">Search</span></div>
+                    <div className="filter__searchOptions__searchButton--logo hide-on-tablet"></div>
+                    <p className="filter__searchOptions__searchButton--text hide-on-mobile">Search</p>
                 </div>
                 </div>
             </div>
