@@ -15,12 +15,12 @@ const Filter = () => {
                     </div>
                     <input type="text" className="filter__searchField--input" placeholder="Filter by title..."/>
                 </div>
-            <InputLocation type={"MOBILE"} />    
+            <InputLocation type={"MOBILE"} parentName={"filter"}/>    
             <div className="filter__searchOptions">
                 <div className="filter__searchOptions__filter hide-on-tablet">
                     <div onClick={toggleModal} className="filter__searchOptions__filter--logo hide-on-tablet"/>
                 </div>
-               <InputTimeOption type={"MOBILE"} placeholder={"Full Time"}/>
+               <InputTimeOption type={"MOBILE"} placeholder={"Full Time"} parentName={"filter"}/>
                 <div className="filter__searchOptions__searchButton">
                     <div className="filter__searchOptions__searchButton--logo hide-on-tablet"></div>
                     <p className="filter__searchOptions__searchButton--text hide-on-mobile">Search</p>
