@@ -1,8 +1,11 @@
 import './Filter.scss'
 import InputLocation from '../Inputs/InputLocation';
 import InputTimeOption from '../Inputs/InputTimeOption';
+import ModalFilter from '../ModalFilter/ModalFilter';
+import useModal from '../../hooks/HookModal/useModal';
 
 const Filter = () => {
+   const {isShowing, toggleModal} = useModal();
     return (
         <div className="filter__container">
             <div className="filter">
@@ -12,18 +15,20 @@ const Filter = () => {
                     </div>
                     <input type="text" className="filter__searchField--input" placeholder="Filter by title..."/>
                 </div>
-            <InputLocation/>    
+            <InputLocation type={"MOBILE"} />    
             <div className="filter__searchOptions">
                 <div className="filter__searchOptions__filter hide-on-tablet">
-                    <div className="filter__searchOptions__filter--logo hide-on-tablet"/>
+                    <div onClick={toggleModal} className="filter__searchOptions__filter--logo hide-on-tablet"/>
                 </div>
-               <InputTimeOption/>
+               <InputTimeOption type={"MOBILE"} placeholder={"Full Time"}/>
                 <div className="filter__searchOptions__searchButton">
                     <div className="filter__searchOptions__searchButton--logo hide-on-tablet"></div>
                     <p className="filter__searchOptions__searchButton--text hide-on-mobile">Search</p>
                 </div>
                 </div>
             </div>
+            <ModalFilter isShowing={isShowing} hide={toggleModal}/>
+
         </div>
     )
 }
