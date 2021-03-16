@@ -1,5 +1,5 @@
 @import '../../styles/variables';
-
+@import '../../styles/mixin';
 .modal__container {
     position: fixed;
     overflow: hidden;
@@ -21,32 +21,34 @@
   .modal {
       display: flex;
       flex-direction: column;
-      //max-width: 327px;
-      //max-height: 217px;
-      min-height: 227px;
-      min-width: 327px;
+      max-height: 217px;
+      min-height: 217px;
+      max-width: 327px;
+      width: 94%;
+      border-radius: 4px;
       background-color: #fff;
-      border-radius: 8px;
+      body.dark-mode &{
+        background-color: $brand-secondary-dark;
+    }
       &__inputLocation {
-          display: flex;
-          align-items: center;
+          @include inputLocation;
+          border-top-left-radius: inherit;
+          border-top-right-radius: inherit;
           border-bottom: 1px solid $color-dark-grey;
-        &__logo {
+          max-height: 73px;
+          min-height: 72px;
+          &__logo {
+            margin-left: 9%;
             &--locationLogo {
                 width: 18px;
                 height: 24px;
-                -webkit-mask: url(../../assets/desktop/icon-location.svg) no-repeat center;
-                        mask: url(../../assets/desktop/icon-location.svg) no-repeat center;
-                background-color: $color-button-default;
-                margin-left: 24px;
                 margin-right: 24px;
             }
         }
         &--input {
-            border: none;
-            height: 72px;
             width: 64%;
             font-size: 16px;
+            height: 72px;
             &:focus {
                 outline: none;
             }
@@ -58,51 +60,12 @@
         }
       }
       &__inputTimeOption {
-        display: flex;
-        align-items: center;
-        margin-top: 4px;
-        height: 71px;
-        //  Remove default style
+          @include inputTimeOption;
+          width: 279px;
+        min-height: 72px;
         &--input {
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            -ms-appearance: none;
-            width: 24px;
-            height: 24px;
-            margin-left: 19px;
+            margin-left: 9%;
             margin-right: 18px;
-            background: #E7E8E9;
-            border-radius: 3px;
-            body.dark-mode &{
-                background-color: #313743;
-            }
-        &:checked {
-            background: #5964e0 !important;
-            position: relative;
-            &:before {
-              font-family:"Font Awesome 5 Free";
-              content: '\f00c';
-              display: block;
-              color: #fff;
-              font-size: 13px;
-              position: absolute;
-              top: 5px;
-              left: 5px;
-            }
-          }
-          &:focus {
-            outline: none;
-        }
-        }
-        & label {
-            color: #19202D;
-            font-weight: bold;
-            font-size: 16px;
-            //margin-right: 28px;
-            body.dark-mode &{
-                color: #fff;
-            }
-            
         }
     }
       &__searchButton {
@@ -112,13 +75,16 @@
           height: 48px;
           border-radius: 6px;
           background-color: $color-button-default;
-
+          margin-bottom: 22px;  
           &--text {
-            background-color: $color-button-default;
             color: #fff;
             margin: auto auto;
             font-weight: bold;
-                        font-size: 16px;
+            font-size: 16px;
           }
+          &:hover {
+            cursor: pointer;
+            background-color: #939bf4;
+        }
       }
   }
