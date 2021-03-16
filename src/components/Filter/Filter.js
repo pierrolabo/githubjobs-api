@@ -1,5 +1,6 @@
 import './Filter.scss'
 import InputLocation from '../Inputs/InputLocation';
+import InputTimeOption from '../Inputs/InputTimeOption';
 
 const Filter = () => {
     return (
@@ -16,10 +17,7 @@ const Filter = () => {
                 <div className="filter__searchOptions__filter hide-on-tablet">
                     <div className="filter__searchOptions__filter--logo hide-on-tablet"/>
                 </div>
-                <div className="filter__searchOptions__timeOption hide-on-mobile">
-                    <input type="checkbox" name="timeoption" id="timeoption"className="filter__searchOptions__timeOption--input"/>
-                    <label for="timeoption">Full Time</label>
-                </div>
+               <InputTimeOption/>
                 <div className="filter__searchOptions__searchButton">
                     <div className="filter__searchOptions__searchButton--logo hide-on-tablet"></div>
                     <p className="filter__searchOptions__searchButton--text hide-on-mobile">Search</p>
