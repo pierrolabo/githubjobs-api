@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect} from 'react';
+import { createContext, useState} from 'react';
 
 const HookFilterContext = createContext();
 
@@ -7,7 +7,7 @@ const HookFilterProvider = (props) => {
     const [fullTime, setFullTime] = useState(false);
 
     return (
-        <HookFilterContext.Provider value={[location, fullTime, setLocation]}>
+        <HookFilterContext.Provider value={[location, fullTime, setLocation, setFullTime]}>
             {props.children}
         </HookFilterContext.Provider>
     )

@@ -1,6 +1,5 @@
-import {useRef, useContext, useCallback, useEffect} from 'react';
+import {useEffect} from 'react';
 import {createPortal} from 'react-dom';
-import {HookFilterContext, HookFilterProvider} from '../../hooks/HookFilter/HookFilter';
 import InputLocation from '../Inputs/InputLocation';
 import InputTimeOption from '../Inputs/InputTimeOption';
 import './ModalFilter.scss'
