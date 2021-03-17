@@ -10,7 +10,9 @@ const CardJob = ({created_at, company, location, title, company_logo}) => {
                       <h4> Full Time</h4>
                   </div>
                   <div className="jobs__card__title">
+                      <a href="http://" target="_blank" rel="noopener noreferrer">
                       <h3>{title}</h3>
+                      </a>
                   </div>
                   <div className="jobs__card__company">
                       <h4>{company}</h4>
