@@ -1,12 +1,13 @@
 import {useEffect, useState} from 'react';
 import './JobsContainer.scss';
 import JobCard from '../../CardJob/CardJob';
+import CardJobSkeleton from '../../CardJob/CardJobSkeleton';
 
 const JobsContainer = () => {
     const [jobs, setJobs] = useState([]);
-
+    const [isLoading, setIsLoading] = useState(true)
     const getJobs = () => {
-        fetch('jobs.json', {
+        fetch('https://jobs.github.com/positions.json', {
             headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json'
@@ -28,6 +29,11 @@ const JobsContainer = () => {
         <main>
             <div className="jobs__container">
                 <div className="jobs">
+                    {
+                        isLoading && [1,2,3,4,5,6,7,8].map(item => {
+                            return <CardJobSkeleton />
+                        })
+                    }
                 {
                     jobs && jobs.map(job => {
                         return <JobCard {...job} key={job.id}/>
