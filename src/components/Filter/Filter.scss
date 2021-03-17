@@ -13,6 +13,10 @@
         //padding-left: 39px;
 
     }
+    @media(min-width: $breakpoint-tablet) {
+        padding-left: 38px;
+        padding-right: 30px;
+    }
     //  Desktop
     @media(min-width: 1440px) {
         padding-right: 164px;

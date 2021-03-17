@@ -1,4 +1,5 @@
 @import '../../styles/variables';
+
 .jobs__card {
     position: relative;
     display: flex;
@@ -8,11 +9,18 @@
     color: black;
     border-radius: 6px;
     height: 228px;
-    width: 327px;
+    min-width: 327px;
     //padding: 39px 20px;
     padding-top: 49px;
     padding-bottom: 33px;
     padding-left: 32px;
+    padding-right: 12px;
+    width: 100%;
+    @media(min-width: $breakpoint-tablet) {
+        min-width: 339px;
+
+    }
+    
     &__companyLogo {
         position: absolute;
         top: -10%;
