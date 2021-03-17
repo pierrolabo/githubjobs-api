@@ -81,8 +81,11 @@
         @include inputLocation;
         //display: flex;
         //align-items: center;
-        max-width: 14%;
+        //max-width: 14%;
+        max-width: 23%;
         min-width: 215px;
+        flex-basis: 348px;
+
         &__logo {
             &--locationLogo {
                 width: 24px;
@@ -139,7 +142,7 @@
 
         }
         @media(min-width: $breakpoint-desktop) {
-        flex-basis: 370px;
+        flex-basis: 348px;
         }
         &__filter {
         &--logo {
