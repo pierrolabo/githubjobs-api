@@ -1,0 +1,9 @@
+@import '../../../styles/variables';
+
+.jobs {
+    display: grid;
+    grid-template-columns: 1fr;
+    column-gap: 4px;
+    grid-row-gap: 51px;
+   
+}
