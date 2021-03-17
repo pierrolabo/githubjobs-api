@@ -3,12 +3,13 @@ import {HookFilterContext} from '../../../hooks/HookFilter/HookFilter';
 import './JobsContainer.scss';
 import JobCard from '../../CardJob/CardJob';
 import CardJobSkeleton from '../../CardJob/CardJobSkeleton';
-
+import {URL_API} from '../../../constants/Constants';
 const JobsContainer = () => {
     const [location, fullTime, setLocation, setFullTime, filterBy, setFilterBy, doSearch, jobs, setJobs,isLoading, setIsLoading] = useContext(HookFilterContext)
+    //
     const getJobs = () => {
         setIsLoading(true)
-        fetch('jobs.json', {
+        fetch(URL_API, {
             headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json'
