@@ -36,6 +36,16 @@
             height: 100%;
             border-radius: 15px;
         }
+        &.fallback--companyLogo {
+            //display: none !important;
+            img {
+                display: flex;
+                width: 100%;
+                height: 100%;
+                border-radius: 15px;
+                background: $color-button-default
+            }
+        }
     }
     &__time {
         display: flex;
