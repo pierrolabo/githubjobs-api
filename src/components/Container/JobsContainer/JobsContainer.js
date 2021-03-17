@@ -1,14 +1,14 @@
-import {useEffect, useState} from 'react';
+import {useEffect, useState, useContext} from 'react';
+import {HookFilterContext} from '../../../hooks/HookFilter/HookFilter';
 import './JobsContainer.scss';
 import JobCard from '../../CardJob/CardJob';
 import CardJobSkeleton from '../../CardJob/CardJobSkeleton';
 
 const JobsContainer = () => {
-    const [jobs, setJobs] = useState([]);
-    const [isLoading, setIsLoading] = useState(false)
+    const [location, fullTime, setLocation, setFullTime, filterBy, setFilterBy, doSearch, jobs, setJobs,isLoading, setIsLoading] = useContext(HookFilterContext)
     const getJobs = () => {
         setIsLoading(true)
-        fetch('https://cors.bridged.cc/https://jobs.github.com/positions.json', {
+        fetch('jobs.json', {
             headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json'

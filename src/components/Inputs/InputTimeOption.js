@@ -1,21 +1,14 @@
-/*
-const InputTimeOption = ({type, placeholder, parentName}) => {
-    return (
-        <div className={`filter__searchOptions__timeOption ${type === "MOBILE" ? "hide-on-mobile" : ""}`}>
-            <input type="checkbox" name="timeoption" id="timeoption"className="filter__searchOptions__timeOption--input"/>
-            <label for="timeoption">{placeholder}</label>
-        </div>
-    )
-}
-
-export default InputTimeOption;
-
-*/
+import { useContext } from "react";
+import {HookFilterContext} from '../../hooks/HookFilter/HookFilter';
 
 const InputTimeOption = ({type, placeholder, parentName}) => {
+    const [location, fullTime, setLocation, setFullTime, filterBy, setFilterBy] = useContext(HookFilterContext)
+    const handleChange = () => {
+        setFullTime(!fullTime)
+    }
     return (
         <div className={`${parentName}__inputTimeOption ${type === "MOBILE" ? "hide-on-mobile" : ""}`}>
-            <input type="checkbox" name="inputTimeOption" id="inputTimeOption"className={`${parentName}__inputTimeOption--input`}/>
+            <input onChange={handleChange} defaultChecked={fullTime} type="checkbox" name="inputTimeOption" id="inputTimeOption"className={`${parentName}__inputTimeOption--input`}/>
             <label htmlFor="inputTimeOption">{placeholder}</label>
         </div>
     )

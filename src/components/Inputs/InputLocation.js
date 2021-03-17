@@ -1,22 +1,18 @@
-/*
-const InputLocation = () => {
-    return (
-        <div className="filter__searchOptions__filterByLocation hide-on-mobile">
-                    <div className="filter__searchOptions__filterByLocation__logo ">
-                        <div className="filter__searchOptions__filterByLocation__logo--locationLogo"></div>
-                    </div>
-                    <input type="text" className="filter__searchOptions__filterByLocation--input " placeholder="Filter by location..."/>
-                </div>
-    )
-}
-*/
+import { useContext } from "react";
+import {HookFilterContext} from '../../hooks/HookFilter/HookFilter';
+
 const InputLocation = ({type, parentName}) => {
+    //  Why do we have to import everything from right order in context ??
+    const [location, fullTime, setLocation, setFullTime, filterBy, setFilterBy] = useContext(HookFilterContext)
+    const handleChange = (e) => {
+        setLocation(e.target.value)
+    }
     return (
         <div className={`${parentName}__inputLocation ${type === "MOBILE" ? "hide-on-mobile" : ''}`}>
                     <div className={`${parentName}__inputLocation__logo`}>
                         <div className={`${parentName}__inputLocation__logo--locationLogo`}></div>
                     </div>
-                    <input type="text" className={`${parentName}__inputLocation--input`} placeholder="Filter by location..."/>
+                    <input type="text" value={location} onChange={handleChange} className={`${parentName}__inputLocation--input`} placeholder="Filter by location..."/>
                 </div>
     )
 }
