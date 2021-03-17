@@ -13,6 +13,10 @@
         //padding-left: 39px;
 
     }
+    @media(min-width: $breakpoint-tablet) {
+        padding-left: 38px;
+        padding-right: 30px;
+    }
     //  Desktop
     @media(min-width: 1440px) {
         padding-right: 164px;
@@ -59,7 +63,8 @@
             display: flex;
             border-radius: 8px;
             border: none;
-            width: 55%;
+            //width: 55%;
+            width: 100%;
             height: 80px;
             body.dark-mode &{
                 background: $brand-secondary-dark;
@@ -76,8 +81,11 @@
         @include inputLocation;
         //display: flex;
         //align-items: center;
-        max-width: 14%;
+        //max-width: 14%;
+        max-width: 23%;
         min-width: 215px;
+        flex-basis: 348px;
+
         &__logo {
             &--locationLogo {
                 width: 24px;
@@ -113,14 +121,14 @@
             margin-left: 19px;
             margin-right: 15px;
         }
-            @media(min-width: $breakpoint-desktop) {
-                font-size: 0;
-                &::after {
-                    content: "Full Time Only";
-                    font-size: 16px;
-                    font-weight: bold;
-                }
+        @media(min-width: $breakpoint-desktop) {
+            label {font-size: 0 !important};
+            &::after {
+                content: "Full Time Only";
+                font-size: 16px;
+                font-weight: bold;
             }
+        }
         }
     
     &__searchOptions {
@@ -134,7 +142,7 @@
 
         }
         @media(min-width: $breakpoint-desktop) {
-        flex-basis: 370px;
+        flex-basis: 348px;
         }
         &__filter {
         &--logo {

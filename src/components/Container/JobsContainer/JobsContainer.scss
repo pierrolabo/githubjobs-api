@@ -1,0 +1,28 @@
+@import '../../../styles/variables';
+
+.jobs {
+    display: grid;
+    grid-template-columns: 1fr;
+    column-gap: 4px;
+    grid-row-gap: 51px;
+    padding-right: 22px;
+    padding-left: 18px;
+    margin-top: 32px;
+    @media(min-width: $breakpoint-tablet) {
+        grid-template-columns: 1fr 1fr;
+        padding-left: 38px;
+        padding-right: 30px;
+        column-gap: 11px;
+    margin-top: 48px;
+
+
+    }
+    @media(min-width: $breakpoint-desktop) {
+        grid-template-columns: 1fr 1fr 1fr;
+            padding-right: 164px;
+            padding-left: 165px;
+            margin-top: 75px;
+        
+    }
+   
+}
