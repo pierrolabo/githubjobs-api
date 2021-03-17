@@ -48,9 +48,17 @@
     &__title {
         margin-top: 15px;
         font-weight: bold;
-        body.dark-mode &{
-            color: #fff;
+        & a {
+            color: $brand-secondary-dark;
+            &:hover {
+                color: $color-dark-grey !important;
+            }
+            body.dark-mode &{
+                color: #fff;
+            }
+
         }
+
     }
     &__company {
         color: $color-dark-grey;
