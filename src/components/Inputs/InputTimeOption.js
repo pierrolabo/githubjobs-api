@@ -2,7 +2,7 @@ import { useContext } from "react";
 import {HookFilterContext} from '../../hooks/HookFilter/HookFilter';
 
 const InputTimeOption = ({type, placeholder, parentName}) => {
-    const [location, fullTime, setLocation, setFullTime] = useContext(HookFilterContext)
+    const [location, fullTime, setLocation, setFullTime, filterBy, setFilterBy] = useContext(HookFilterContext)
     const handleChange = () => {
         setFullTime(!fullTime)
     }

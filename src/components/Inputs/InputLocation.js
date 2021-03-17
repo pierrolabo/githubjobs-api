@@ -3,7 +3,7 @@ import {HookFilterContext} from '../../hooks/HookFilter/HookFilter';
 
 const InputLocation = ({type, parentName}) => {
     //  Why do we have to import everything from right order in context ??
-    const [location, fullTime, setLocation, setFullTime] = useContext(HookFilterContext)
+    const [location, fullTime, setLocation, setFullTime, filterBy, setFilterBy] = useContext(HookFilterContext)
     const handleChange = (e) => {
         setLocation(e.target.value)
     }

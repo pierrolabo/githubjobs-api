@@ -1,3 +1,6 @@
+import { useContext } from "react";
+import {HookFilterContext} from '../../hooks/HookFilter/HookFilter';
+
 import './Filter.scss'
 import InputLocation from '../Inputs/InputLocation';
 import InputTimeOption from '../Inputs/InputTimeOption';
@@ -5,7 +8,11 @@ import ModalFilter from '../ModalFilter/ModalFilter';
 import useModal from '../../hooks/HookModal/useModal';
 
 const Filter = () => {
+    const [location, fullTime, setLocation, setFullTime, filterBy, setFilterBy, doSearch] = useContext(HookFilterContext)
    const {isShowing, toggleModal} = useModal();
+   const handleChangeFilterBy = (e) => {
+    setFilterBy(e.target.value)
+   }
     return (
         <div className="filter__container">
             <div className="filter">
@@ -13,7 +20,7 @@ const Filter = () => {
                     <div className="filter__searchField__logo hide-on-mobile">
                      <div className="filter__searchField__logo--searchLogo"></div>
                     </div>
-                    <input type="text" className="filter__searchField--input" placeholder="Filter by title..."/>
+                    <input value={filterBy} onChange={handleChangeFilterBy} type="text" className="filter__searchField--input" placeholder="Filter by title..."/>
                 </div>
             <InputLocation type={"MOBILE"} parentName={"filter"}/>    
             <div className="filter__searchOptions">
@@ -21,7 +28,7 @@ const Filter = () => {
                     <div onClick={toggleModal} className="filter__searchOptions__filter--logo hide-on-tablet"/>
                 </div>
                <InputTimeOption type={"MOBILE"} placeholder={"Full Time"} parentName={"filter"}/>
-                <div className="filter__searchOptions__searchButton">
+                <div onClick={doSearch} className="filter__searchOptions__searchButton">
                     <div className="filter__searchOptions__searchButton--logo hide-on-tablet"></div>
                     <p className="filter__searchOptions__searchButton--text hide-on-mobile">Search</p>
                 </div>
