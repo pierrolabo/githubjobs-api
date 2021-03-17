@@ -63,7 +63,8 @@
             display: flex;
             border-radius: 8px;
             border: none;
-            width: 55%;
+            //width: 55%;
+            width: 100%;
             height: 80px;
             body.dark-mode &{
                 background: $brand-secondary-dark;
