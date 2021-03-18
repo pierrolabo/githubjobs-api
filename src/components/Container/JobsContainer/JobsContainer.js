@@ -41,7 +41,7 @@ const JobsContainer = () => {
             </div>
             {
                 !isLoadingNextPage && !isLoading && jobs.length > indexedJobs.length && (<div className="jobs__loadMoreButton" style={{display: 'flex', justifyContent: 'center', width: '100%'}}>
-                <button onClick={loadMore}>Load More</button>
+                <button className="jobs--searchButton" onClick={loadMore}>Load More</button>
                 </div> )
             }
             </div>     
