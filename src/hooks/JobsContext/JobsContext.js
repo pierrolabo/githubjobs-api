@@ -1,5 +1,6 @@
 import {createContext, useCallback} from "react";
 import { useImmerReducer } from 'use-immer';
+import {uniq} from 'lodash';
 import {ACTIONS} from '../../constants/JobAction';
 import {URL_API, ENV} from '../../constants/Constants';
 
@@ -100,9 +101,11 @@ const JobsContextProvider = (props) => {
         *
         */
         if ( jobs.length - indexedJobs.length >= 12) {
-            const newIndexJobs = [...indexedJobs, ...jobs.slice(jobIndex, jobIndex + 12)]
+            const newIndexedJobs = [...indexedJobs, ...jobs.slice(jobIndex, jobIndex + 12)]
+           const newIndexedJobsFiltered = uniq(newIndexedJobs, job => job.id )
+
             dispatch({type: ACTIONS.SET_INDEXED_JOBS, payload: {
-                indexedJobs: newIndexJobs,
+                indexedJobs: newIndexedJobsFiltered,
                 jobIndex: jobIndex + 12
             }})
         } else {
@@ -113,12 +116,14 @@ const JobsContextProvider = (props) => {
            //  Grab the jobs we didn't set in indexedJobs
            const jobsLeftover = jobs.slice(indexedJobs.length, jobs.length)
            const newJobs = [...jobs, ...jobsLeftover, ...jobsNextPage]
-           const newIndexedJobs = [...indexedJobs, ...newJobs.slice(jobIndex, jobIndex + 12)]     
+           const newIndexedJobs = [...indexedJobs, ...newJobs.slice(jobIndex, jobIndex + 12)]  
+           const newIndexedJobsFiltered = uniq(newIndexedJobs, job => job.id )
+
            dispatch({
                type: ACTIONS.SET_INDEXED_JOBS_NEXT_PAGE,
                payload: {
                    jobs: newJobs,
-                   indexedJobs: newIndexedJobs,
+                   indexedJobs: newIndexedJobsFiltered,
                    jobIndex: jobIndex + 12,
                    page: page + 1
                }
@@ -178,12 +183,14 @@ const JobsContextProvider = (props) => {
                 return response.json()
             })
             .then((myJson) => {
+                const jobs = uniq(myJson, job => job.id )
+                console.log("uniqueness: ", myJson.length, jobs.length)
                 if(loadNextPage) {
-                   return myJson
+                   return jobs
                 } else {
                     dispatch({
                         type: ACTIONS.SET_JOBS,
-                        payload: {jobs: myJson}
+                        payload: {jobs: jobs}
                     })
                 }
                
