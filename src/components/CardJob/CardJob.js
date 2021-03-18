@@ -9,7 +9,7 @@ const CardJob = ({created_at, company, location, title, company_logo, type}) => 
             const dateNumber = elapsedTime[0];
             //  handle case when the datenumber can be a letter
             if(isNaN(Number.parseInt(dateNumber))) {
-                if(elapsedTime[0] === 'a' || 'an') {elapsedTime[0] = 1} else {throw Error}
+                if(dateNumber === 'a' || 'an') {dateNumber[0] = 1} else {throw Error}
             }
             //  Represent hours, days, weeks, month, year
             const dateCategory = elapsedTime[1]
