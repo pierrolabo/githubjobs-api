@@ -184,7 +184,6 @@ const JobsContextProvider = (props) => {
             })
             .then((myJson) => {
                 const jobs = uniq(myJson, job => job.id )
-                console.log("uniqueness: ", myJson.length, jobs.length)
                 if(loadNextPage) {
                    return jobs
                 } else {
