@@ -1,10 +1,13 @@
 import { useContext } from "react";
-import {HookFilterContext} from '../../hooks/HookFilter/HookFilter';
+import { JobsContext, DispatchContext } from "../../hooks/JobsContext/JobsContext";
+import {ACTIONS} from '../../constants/JobAction';
 
 const InputTimeOption = ({type, placeholder, parentName}) => {
-    const [location, fullTime, setLocation, setFullTime, filterBy, setFilterBy] = useContext(HookFilterContext)
+  const {dispatch} = useContext(DispatchContext)
+  const {state} = useContext(JobsContext);
+  const {fullTime} = state
     const handleChange = () => {
-        setFullTime(!fullTime)
+        dispatch({type: ACTIONS.TOGGLE_FULLTIME})
     }
     return (
         <div className={`${parentName}__inputTimeOption ${type === "MOBILE" ? "hide-on-mobile" : ""}`}>
