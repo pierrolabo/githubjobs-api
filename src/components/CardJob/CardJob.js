@@ -12,7 +12,11 @@ const CardJob = ({created_at, company, location, title, company_logo, type}) => 
             const dateCategory = elapsedTime[1]
             switch(dateCategory) {
                 case "hours": 
+                case "hour": 
                     finalDate  =`${dateNumber}h ago`
+                    break;
+                    case "minutes": 
+                    finalDate  =`${dateNumber}m ago`
                     break;
                 case "day" : 
                 case "days":
@@ -35,7 +39,7 @@ const CardJob = ({created_at, company, location, title, company_logo, type}) => 
     }
     const timeElapsed = getRelativeTimeFromNow(created_at)
     //  Remove job with date error in their created_at 
-    if(timeElapsed === "") return null;
+    //if(timeElapsed === "") return null;
     return (
         <div className="jobs__card">
                    <div className={`jobs__card__companyLogo ${company_logo ? "" : "fallback--companyLogo"}`}>

@@ -8,6 +8,7 @@ const HookFilterProvider = (props) => {
     const [filterBy, setFilterBy] = useState("");
     const [jobs, setJobs] = useState();
     const [isLoading, setIsLoading] = useState(false)
+    const [lastSearch, setLastSearch] = useState("")
     const doSearch = () => {
             setIsLoading(true)
             let queryString = "";
@@ -40,6 +41,7 @@ const HookFilterProvider = (props) => {
                 queryString += `full_time=on`
             }
             console.log("sending: ", `${URL_API}${queryString}`)
+            setLastSearch(`${URL_API}${queryString}`);
             fetch(`${URL_API}${queryString}`, {
                 headers: {
                     'Content-Type': 'application/json',
