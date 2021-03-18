@@ -1,7 +1,9 @@
 import { useContext } from "react";
 import useModal from '../../hooks/HookModal/useModal';
+import useWindowDimensions from '../../hooks/HookWindows/HookWindows'
 import {JobsContext, DispatchContext} from '../../hooks/JobsContext/JobsContext';
 import { ACTIONS } from "../../constants/JobAction";
+
 
 import InputLocation from '../Inputs/InputLocation';
 import InputTimeOption from '../Inputs/InputTimeOption';
@@ -13,6 +15,8 @@ const Filter = () => {
   const {state} = useContext(JobsContext);
   const {filterBy} = state;
    const {isShowing, toggleModal} = useModal();
+   const { height, width } = useWindowDimensions();
+
 
    //   Trigger reducer to query API with user defined parameters
    const doSearch = () => {
@@ -30,7 +34,7 @@ const Filter = () => {
                     <div className="filter__searchField__logo hide-on-mobile">
                      <div className="filter__searchField__logo--searchLogo"></div>
                     </div>
-                    <input value={filterBy} onChange={handleChangeFilterBy} type="text" className="filter__searchField--input" placeholder="Filter by title..."/>
+                    <input value={filterBy} onChange={handleChangeFilterBy} type="text" className="filter__searchField--input" placeholder={width < 1440 ? "Filter by title..." : "Filter by title, companies, expertise..."}/>
                 </div>
             <InputLocation type={"MOBILE"} parentName={"filter"}/>    
             <div className="filter__searchOptions">
