@@ -172,7 +172,8 @@ const JobsContextProvider = (props) => {
                 type: ACTIONS.SET_LAST_SEARCH,
                 payload: {lastSearch: `${queryString}`}
             })
-            const URL = ENV === 'DEV' ? 'jobs.json': `${URL_API}${queryString}`
+            const URL = ENV === 'DEV' ? 'http://localhost:3000/jobs.json': `${URL_API}${queryString}`
+            console.log("sending: ", URL)
             return fetch(URL, {
                 headers: {
                     'Content-Type': 'application/json',
