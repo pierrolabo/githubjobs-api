@@ -7,7 +7,8 @@
     padding: 0 40px;
     padding-bottom: 40px;
     background-color: $bg-light;
-}
+    
+}   
 .jobdetails {
     display: flex;
     justify-content: center;
@@ -128,6 +129,10 @@
         border-radius: 6px;
         //padding: 0 24px;
         padding: 40px 24px;
+        @media(min-width: $breakpoint-desktop) {
+            max-width: 730px;
+
+        }
         &__company {
             display: flex;
             flex-direction: column;
@@ -177,6 +182,7 @@
                 @media(min-width: $breakpoint-tablet) {
                     height: 87px;
                 }
+               
                 &--buttonapply {
                     margin: 32px 0;
                     height: 48px;
@@ -207,20 +213,61 @@
         max-height: 260px;;
         height: 372px;
         @media(min-width: $breakpoint-tablet) {
-        background-image: url(../../assets/desktop/bg-pattern-detail-footer.svg);
-
+            background-image: url(../../assets/desktop/bg-pattern-detail-footer.svg);
         }
         @media(min-width: $breakpoint-desktop) {
+            max-width: 730px;
         }
 
     }
-    &__footer {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 96px;
-        //background-color: #fff;
-        background-color: purple;
-        width: 100%;
-    }
+        &__footer__container {
+            background-color: #fff;
+            display: flex;
+            justify-content: center;
+            margin-top: 50px;
+        }
+        &__footer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 96px;
+            width: 100%;
+            padding: 25px 39px;
+
+            @media(min-width: $breakpoint-tablet) {
+                justify-content: space-between;
+                //max-width: 689px;
+
+            }
+            @media(min-width: $breakpoint-desktop) {
+                justify-content: space-between;
+                max-width: 730px;
+            }
+            &__info {
+                display: flex;
+                flex-direction: column !important;
+                align-items: flex-start;
+                height: 51px;
+                justify-content: space-between;
+            }
+            &__apply {
+                &--buttonapply {
+                    height: 48px;
+                    border: none;
+                    border-radius: 6px;
+                    background-color: $color-button-default;
+                    color: #fff;
+                    font-weight: bold;
+                    width: 327px;
+                    min-height: 48px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    @media(min-width: $breakpoint-tablet ) {
+                        width: 141px;
+                    }
+                }
+            }
+        }
+        
 }

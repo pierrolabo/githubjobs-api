@@ -68,11 +68,17 @@ const JobDetails = ({id, company, company_logo, company_url, title, location, ty
                 </section>
         </main>
 
-                <section className="jobdetails__footer">
-                    <div className="jobdetails__footer__info hide-on-mobile"></div>
-                    <div className="jobdetails__footer__apply">
-                    <button className="hide-on-tablet">Apply Now</button>
+                <section className="jobdetails__footer__container">
+                    <div className="jobdetails__footer">
 
+                    <div className="jobdetails__footer__info hide-on-mobile">
+                        <h4>{title}</h4>
+                        <h3>{company}</h3>
+                    </div>
+                    <div className="jobdetails__footer__apply">
+                    <button className="jobdetails__footer__apply--buttonapply">Apply Now</button>
+
+                    </div>
                     </div>
                 </section>
 
