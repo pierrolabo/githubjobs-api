@@ -211,9 +211,30 @@
         margin-top: 32px;
         min-width: 327px;
         max-height: 260px;;
-        height: 372px;
+        height: 260px;
+        color: #fff;
+        //TODO: check if i can remove all the previous widths and heights
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        &--title {
+            font-weight: bold;
+        }
+        &--text {
+            font-size: 16px;
+            line-height: 26px;
+        }
+        &--link {
+            text-decoration: none;
+            font-size: 16px;
+            line-height: 26px;
+            color: #fff;
+            font-weight: bold;
+        }
         @media(min-width: $breakpoint-tablet) {
             background-image: url(../../assets/desktop/bg-pattern-detail-footer.svg);
+            
         }
         @media(min-width: $breakpoint-desktop) {
             max-width: 730px;
@@ -236,7 +257,7 @@
 
             @media(min-width: $breakpoint-tablet) {
                 justify-content: space-between;
-                //max-width: 689px;
+                max-width: 689px;
 
             }
             @media(min-width: $breakpoint-desktop) {
@@ -249,6 +270,14 @@
                 align-items: flex-start;
                 height: 51px;
                 justify-content: space-between;
+                &--title {
+                    font-size: 20px;
+                }
+                &--company {
+                    font-size: 16px;
+                    color: $color-dark-grey;
+
+                }
             }
             &__apply {
                 &--buttonapply {

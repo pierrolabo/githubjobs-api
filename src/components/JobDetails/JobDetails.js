@@ -63,8 +63,9 @@ const JobDetails = ({id, company, company_logo, company_url, title, location, ty
                 </div>
             </section>
                 <section className="jobdetails__howtoapply">
-                    <h3>How to Apply</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe maiores, ullam culpa enim delectus in similique consequuntur. Officia harum alias dolor nam ipsa pariatur odio amet quaerat consectetur? Facere qui, tempora nulla voluptatum quis possimus quia suscipit distinctio fuga vero culpa optio ducimus modi explicabo inventore provident placeat amet odio.</p>
+                    <h3 className="jobdetails__howtoapply--title">How to Apply</h3>
+                    <p className="jobdetails__howtoapply--text"> Lorem ipsum dolor sit amet consectetur.Lorem ipsum dolor sit amet consecteturLorem ipsum dolor sit amet consectetursit amet consectetur</p>
+                    <a className="jobdetails__howtoapply--link" href="#">http://examplelink.com/how-to-apply</a>
                 </section>
         </main>
 
@@ -72,8 +73,8 @@ const JobDetails = ({id, company, company_logo, company_url, title, location, ty
                     <div className="jobdetails__footer">
 
                     <div className="jobdetails__footer__info hide-on-mobile">
-                        <h4>{title}</h4>
-                        <h3>{company}</h3>
+                        <h4 className="jobdetails__footer__info--title">{title}</h4>
+                        <h3 className="jobdetails__footer__info--company">{company}</h3>
                     </div>
                     <div className="jobdetails__footer__apply">
                     <button className="jobdetails__footer__apply--buttonapply">Apply Now</button>
