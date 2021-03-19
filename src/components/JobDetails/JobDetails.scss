@@ -1,5 +1,42 @@
 @import '../../styles/variables';
 
+ul, ol {
+    font-size: 16px;
+    line-height: 26px;
+    color: $color-dark-grey;
+}    
+ul {
+    list-style: none;
+    list-style-position: outside;
+    li::before {
+        content: ".";
+        color: $color-button-default;
+        display: inline-block;
+        font-size: 50px;
+        padding-right: 30px;
+    }
+}
+
+//  Custom ordered list
+.custOL {
+    list-style-type: none;
+    counter-reset: list-number;
+    list-style-position: outside;
+    //text-align: start;
+    & li::before {
+        counter-increment: list-number;
+        content: counter(list-number);
+        margin-right: 10px;
+        margin-bottom:10px;
+        display:inline-flex;
+        align-items:center;
+        justify-content: center;
+        font-size:16px;
+        color:$color-button-default;
+        font-weight: bold;
+        padding-right: 30px;
+    }
+}
 .jobdetails__container {
     display: flex;
     flex-direction: column;
@@ -7,11 +44,24 @@
     padding: 0 40px;
     padding-bottom: 40px;
     background-color: $bg-light;
-}
+    
+}   
 .jobdetails {
     display: flex;
     justify-content: center;
     align-items: center;
+    &--title {
+        font-size: 20px;
+        font-weight: bold;
+        margin: 28px 0;
+    }
+    &--text {
+        line-height: 26px;
+            font-size: 16px;
+            color: $color-dark-grey;
+            margin: 36px 0;
+
+    }
     &__header {
         background-color: #fff;
         position: relative;
@@ -128,6 +178,10 @@
         border-radius: 6px;
         //padding: 0 24px;
         padding: 40px 24px;
+        @media(min-width: $breakpoint-desktop) {
+            max-width: 730px;
+
+        }
         &__company {
             display: flex;
             flex-direction: column;
@@ -177,6 +231,7 @@
                 @media(min-width: $breakpoint-tablet) {
                     height: 87px;
                 }
+               
                 &--buttonapply {
                     margin: 32px 0;
                     height: 48px;
@@ -196,6 +251,20 @@
         }
 
     }
+    &__description {
+        
+        p {
+            line-height: 26px;
+            font-size: 16px;
+            color: $color-dark-grey;
+            margin: 36px 0;
+        }
+        a {
+            font-size: 16px;
+            font-weight: bold;
+            color: $color-button-default
+        }
+    }
     &__howtoapply {
         background-image: url(../../assets/mobile/bg-pattern-detail-footer.svg);
         background-repeat: round;
@@ -205,22 +274,92 @@
         margin-top: 32px;
         min-width: 327px;
         max-height: 260px;;
-        height: 372px;
+        height: 260px;
+        color: #fff;
+        //TODO: check if i can remove all the previous widths and heights
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        &--title {
+            font-weight: bold;
+        }
+        &--text {
+            font-size: 16px;
+            line-height: 26px;
+        }
+        &--link {
+            text-decoration: none;
+            font-size: 16px;
+            line-height: 26px;
+            color: #fff;
+            font-weight: bold;
+        }
         @media(min-width: $breakpoint-tablet) {
-        background-image: url(../../assets/desktop/bg-pattern-detail-footer.svg);
-
+            background-image: url(../../assets/desktop/bg-pattern-detail-footer.svg);
+            
         }
         @media(min-width: $breakpoint-desktop) {
+            max-width: 730px;
         }
 
     }
-    &__footer {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 96px;
-        //background-color: #fff;
-        background-color: purple;
-        width: 100%;
-    }
+        &__footer__container {
+            background-color: #fff;
+            display: flex;
+            justify-content: center;
+            margin-top: 50px;
+        }
+        &__footer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 96px;
+            width: 100%;
+            padding: 25px 39px;
+
+            @media(min-width: $breakpoint-tablet) {
+                justify-content: space-between;
+                //max-width: 689px;
+
+            }
+            @media(min-width: $breakpoint-desktop) {
+                justify-content: space-between;
+                max-width: 730px;
+            }
+            &__info {
+                display: flex;
+                flex-direction: column !important;
+                align-items: flex-start;
+                height: 51px;
+                justify-content: space-between;
+                &--title {
+                    font-size: 20px;
+                }
+                &--company {
+                    font-size: 16px;
+                    color: $color-dark-grey;
+
+                }
+            }
+            &__apply {
+                &--buttonapply {
+                    height: 48px;
+                    border: none;
+                    border-radius: 6px;
+                    background-color: $color-button-default;
+                    color: #fff;
+                    font-weight: bold;
+                    width: 327px;
+                    min-height: 48px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    @media(min-width: $breakpoint-tablet ) {
+                        width: 141px;
+                    }
+                }
+            }
+        }
+        
 }
