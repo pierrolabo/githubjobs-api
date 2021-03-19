@@ -1,5 +1,13 @@
 @import '../../styles/variables';
 
+.jobdetails__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 40px;
+    padding-bottom: 40px;
+    background-color: $bg-light;
+}
 .jobdetails {
     display: flex;
     justify-content: center;
@@ -113,5 +121,106 @@
 
             }
         }
+    }
+    &__content {
+        background: #fff;
+        min-width: 327px;
+        border-radius: 6px;
+        //padding: 0 24px;
+        padding: 40px 24px;
+        &__company {
+            display: flex;
+            flex-direction: column;
+            //margin-top: 50px;
+            //height: 87px;
+            @media(min-width: $breakpoint-tablet) {
+                flex-direction: row;
+            }
+            &__info {
+               display: flex;
+               flex-direction: column;
+               width: 100%;
+               @media(min-width: $breakpoint-tablet) {
+                flex-direction: row;
+            }
+               &__details {
+                   display: flex;
+                   flex-direction: column;
+                   flex-grow: 1;
+                   align-items: space-between;
+                   justify-content: space-between;
+                   height: 95px;
+                   @media(min-width: $breakpoint-tablet) {
+                       height: 87px;
+                   }
+                   &__time {
+                       //margin-top: 40px;
+                       display: flex;
+                       color: $color-dark-grey;
+                       & h4 {
+                           font-weight: 400;
+                           font-size: 16px;
+                       }
+                   }
+                   &--location {
+                       //margin-top: 15px;
+                       color: $color-button-default;
+                        font-weight: bold;    
+                   }
+               }
+              
+            }
+            &__apply {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                @media(min-width: $breakpoint-tablet) {
+                    height: 87px;
+                }
+                &--buttonapply {
+                    margin: 32px 0;
+                    height: 48px;
+                    min-width: 279px;
+        
+                    border: none;
+                    border-radius: 6px;
+                    background-color: $color-button-default;
+                    color: #fff;
+                    font-weight: bold;
+                }
+            }
+        }
+        &__apply {
+            display: flex;
+            justify-content: center;
+        }
+
+    }
+    &__howtoapply {
+        background-image: url(../../assets/mobile/bg-pattern-detail-footer.svg);
+        background-repeat: round;
+        background-size: cover;
+        padding: 46px 24px;
+        border-radius: 6px;
+        margin-top: 32px;
+        min-width: 327px;
+        max-height: 260px;;
+        height: 372px;
+        @media(min-width: $breakpoint-tablet) {
+        background-image: url(../../assets/desktop/bg-pattern-detail-footer.svg);
+
+        }
+        @media(min-width: $breakpoint-desktop) {
+        }
+
+    }
+    &__footer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 96px;
+        //background-color: #fff;
+        background-color: purple;
+        width: 100%;
     }
 }

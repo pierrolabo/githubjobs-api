@@ -52,12 +52,12 @@ const JobDetailsContainer = () => {
     }
     console.log(job)
     return (
-        <main className="jobdetails__container">
-            {
-                job && (<JobDetails {...job}/>)
-            }
+        <>
+        {
+            job && (<JobDetails {...job}/>)
+        }
+        </>
 
-        </main>
     )
 }
 
