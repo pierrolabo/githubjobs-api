@@ -7,7 +7,7 @@ const JobDetails = ({id, company, company_logo, company_url, title, location, ty
 
             <section className="jobdetails__header">
                 <div className="jobdetails__header__companyLogo">
-                <img src={company_logo ? company_logo : ""} alt={`${company_logo ? `${company_logo} logo` : ""}`}/>
+                <img className={company_logo ? "" : ".fallback--companyLogo"} src={company_logo ? company_logo : ""} alt={`${company_logo ? `${company_logo} logo` : ""}`}/>
                 </div>
                 <div className="jobdetails__header__info">
                 <div className="jobdetails__header__info--title">
@@ -48,7 +48,7 @@ const JobDetails = ({id, company, company_logo, company_url, title, location, ty
 
                     Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum quibusdam eveniet iure, temporibus omnis ipsam cupiditate inventore maxime sint deserunt? Aliquam a necessitatibus beatae. Eos commodi accusamus, eveniet modi repellendus, provident quaerat totam magnam quas amet aspernatur excepturi labore? Id iste ipsa dignissimos, aliquid sequi cupiditate! Sed repudiandae maiores nesciunt!
                     </p>
-                    <a href="">See more about our teams here</a>
+                    <a className="jobdetails__description--link" href="">See more about our teams here</a>
                 </div>
                 <div className="jobdetails__requirement">
                     <h3 className="jobdetails__requirement--title jobdetails--title">Requirements</h3>
