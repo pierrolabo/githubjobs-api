@@ -63,15 +63,7 @@ ul {
         font-weight: bold;
         margin: 28px 0;
     }
-    &--text {
-        line-height: 26px;
-            font-size: 16px;
-            color: $color-dark-grey;
-            margin: 36px 0;
-            body.dark-mode &{
-                color: $color-grey;
-            }
-    }
+    
     &__header {
         background-color: #fff;
         position: relative;
@@ -271,14 +263,16 @@ ul {
 
     }
     &__description {
-        
-        p {
+      
+        & p {
             line-height: 26px;
-            font-size: 16px;
-            color: $color-dark-grey;
-            margin: 36px 0;
+                font-size: 16px;
+                color: $color-dark-grey;
+                margin: 36px 0;
+                body.dark-mode &{
+                    color: $color-grey;
+                }
         }
-        
         &--link {
             font-size: 16px;
             font-weight: bold;
@@ -311,15 +305,16 @@ ul {
         &--title {
             font-weight: bold;
         }
-        &--text {
+        & p {
             font-size: 16px;
             line-height: 26px;
         }
-        &--link {
+        & a {
             text-decoration: none;
             font-size: 16px;
             line-height: 26px;
             color: #fff;
+            border-bottom: 1px solid #fff;
             font-weight: bold;
             
             

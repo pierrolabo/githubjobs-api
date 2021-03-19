@@ -1,6 +1,15 @@
+
+import githubjobsDataParser from '../../utils/githubjobsDataParser';
+
 import './JobDetails.scss'
-const JobDetails = ({id, company, company_logo, company_url, title, location, type}) => {
+const JobDetails = ({id, company, company_logo, company_url, title, location, type, description, how_to_apply}) => {
+    const root = githubjobsDataParser(description)
+    //console.log(root)
     console.log("mounted")
+    
+    //  Either a p tag finish by ":" either it's an h2 either it have <strong> in it
+    //  next element is a ul or ol
+    how_to_apply = `<h3 className="jobdetails__howtoapply--title jobsdetails--title">How to Apply</h3>` + how_to_apply
     return (
         <>
         <main className="jobdetails__container">
@@ -40,7 +49,9 @@ const JobDetails = ({id, company, company_logo, company_url, title, location, ty
                    
                   
                 </div>
-                <div className="jobdetails__description">
+                <div className="jobdetails__description" dangerouslySetInnerHTML={{__html: root}}>
+                    {
+                        /*
                 <p className="jobdetails--text">
                         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusamus laborum dicta officia. Nostrum repudiandae unde quia earum maiores qui! Excepturi quasi, iusto numquam alias ut fugiat atque explicabo magni architecto! Quisquam, cum consectetur. Nostrum amet a fugiat facere autem consectetur molestias voluptatem, in ratione necessitatibus, cumque iusto ullam eaque perferendis!
                     </p>
@@ -61,7 +72,12 @@ const JobDetails = ({id, company, company_logo, company_url, title, location, ty
                         <li>Lorem ipsum dolor sit amet.</li>
                         <li>Lorem ipsum dolor sit amet.</li>
                     </ul>
+                        */
+                    }
                 </div>
+                {
+                    /*
+
                 <div className="jobdetails__taskdescription">
                     <h3 className="jobdetails--title">What You Will Do</h3>
                     <p className="jobdetails--text">
@@ -75,11 +91,17 @@ const JobDetails = ({id, company, company_logo, company_url, title, location, ty
                         <li>Lorem ipsum dolor sit amet.</li>
                     </ol>
                 </div>
+                    */
+
+                }
             </section>
-                <section className="jobdetails__howtoapply">
-                    <h3 className="jobdetails__howtoapply--title jobsdetails--title">How to Apply</h3>
-                    <p className="jobdetails__howtoapply--text"> Lorem ipsum dolor sit amet consectetur.Lorem ipsum dolor sit amet consecteturLorem ipsum dolor sit amet consectetursit amet consectetur</p>
-                    <a className="jobdetails__howtoapply--link" href="#">http://examplelink.com/how-to-apply</a>
+                <section className="jobdetails__howtoapply" dangerouslySetInnerHTML={{__html: how_to_apply}}>
+                    {
+                        /*
+                        <p className="jobdetails__howtoapply--text"> Lorem ipsum dolor sit amet consectetur.Lorem ipsum dolor sit amet consecteturLorem ipsum dolor sit amet consectetursit amet consectetur</p>
+                        <a className="jobdetails__howtoapply--link" href="#">http://examplelink.com/how-to-apply</a>
+                        */
+                    }
                 </section>
         </main>
 

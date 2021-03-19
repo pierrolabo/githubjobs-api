@@ -50,7 +50,6 @@ const JobDetailsContainer = () => {
         });
         return await response.json()
     }
-    console.log(job)
     return (
         <>
         {
