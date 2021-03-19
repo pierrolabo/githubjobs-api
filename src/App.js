@@ -1,7 +1,10 @@
+import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import {JobsContextProvider} from './hooks/JobsContext/JobsContext'
+
+import JobsContainer from './components/Container/JobsContainer/JobsContainer';
+import JobDetailsContainer from './components/Container/JobDetailsContainer/JobDetailsContainer';
 import Header from './components/Header/Header';
 import Filter from './components/Filter/Filter';
-import JobsContainer from './components/Container/JobsContainer/JobsContainer';
-import {JobsContextProvider} from './hooks/JobsContext/JobsContext'
 
 import './styles/main.scss'
 
@@ -10,9 +13,21 @@ function App() {
     <div className="App">
       <Header></Header>
       <JobsContextProvider>
+      <Router>
+
+      <Switch>
+        <Route path="/details/:id">
+          <JobDetailsContainer/>
+        </Route>
+        <Route path="/">
       <Filter/>
-      <JobsContainer/>
+          <JobsContainer/>
+        </Route>
+
+      </Switch>
+      </Router>
       </JobsContextProvider>
+
     </div>
   );
 }
