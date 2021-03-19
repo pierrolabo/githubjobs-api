@@ -1,6 +1,7 @@
-import './CardJob.scss';
+import {Link} from 'react-router-dom';
 import moment from 'moment';
-const CardJob = ({created_at, company, location, title, company_logo, type}) => {
+import './CardJob.scss';
+const CardJob = ({created_at, company, location, title, company_logo, type, id}) => {
     const getRelativeTimeFromNow = (time) => {
         let finalDate = '';
         const elapsedTime = moment(time).fromNow().split(' ');
@@ -53,9 +54,8 @@ const CardJob = ({created_at, company, location, title, company_logo, type}) => 
                       <h4> . {type}</h4>
                   </div>
                   <div className="jobs__card__title">
-                      <a href="http://" target="_blank" rel="noopener noreferrer">
-                      <h3>{title}</h3>
-                      </a>
+                      <Link to={`/details/${id}`}><h3>{title}</h3></Link>
+                      
                   </div>
                   <div className="jobs__card__company">
                       <h4>{company}</h4>
