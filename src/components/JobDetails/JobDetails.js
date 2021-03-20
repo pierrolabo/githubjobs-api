@@ -1,11 +1,11 @@
-import {extractURL, getRelativeTimeFromNow} from '../../utils/utils';
+import {extractURL, getRelativeTimeFromNow, extractURI} from '../../utils/utils';
 
 import './JobDetails.scss'
 const JobDetails = ({id, company, company_logo, company_url, title, location, type, description, how_to_apply, created_at}) => {
     how_to_apply = `<h3 className="jobdetails__howtoapply--title jobsdetails--title">How to Apply</h3>` + how_to_apply
     const APPLICATION_URL = extractURL(how_to_apply)
     const TIME_ELAPSED = getRelativeTimeFromNow(created_at)
-    console.log(APPLICATION_URL)
+    const URI = extractURI(company_url)
     return (
         <>
         <main className="jobdetails__container">
@@ -19,7 +19,7 @@ const JobDetails = ({id, company, company_logo, company_url, title, location, ty
                 <h1>{company}</h1>
                 </div>
                 <div className="jobdetails__header__info--url">
-                    <h4>versiti.org</h4>
+                    <h4>{URI}</h4>
                 </div>
                 </div>
                 <a href={company_url} target="_blank" rel="noreferrer">
