@@ -171,14 +171,23 @@ ul {
                 background-color: #c5c9f4;
             }
             body.dark-mode &{
-                background-color: #1f273f;
+                background-color: #303642;
+                color: #fff;
+                &:hover {
+                    background-color: #525861;
+                }
             }
             @media(min-width: $breakpoint-tablet) {
                 margin-top: 27px;
-                margin-right: 41px;
+                margin-right: 24px;
+                width: 100%;
+            min-width: 141px;
+    
+                max-width: 141px;
 
 
             }
+          
         }
     }
     &__content {
@@ -242,6 +251,7 @@ ul {
                 align-items: center;
                 @media(min-width: $breakpoint-tablet) {
                     height: 87px;
+                    
                 }
                
                 &--buttonapply {
@@ -254,6 +264,17 @@ ul {
                     background-color: $color-button-default;
                     color: #fff;
                     font-weight: bold;
+                    &:hover {
+                        cursor: pointer;
+                        background-color: #939bf4;
+                    }
+                    
+                    @media(min-width: $breakpoint-tablet) {
+                        width: 100%;
+                    min-width: 141px;
+
+                        max-width: 141px;
+                    }
                 }
             }
         }
@@ -383,6 +404,10 @@ ul {
                     display: flex;
                     justify-content: center;
                     align-items: center;
+                    &:hover {
+                        cursor: pointer;
+                        background-color: #939bf4;
+                    }
                     @media(min-width: $breakpoint-tablet ) {
                         width: 141px;
                     }
