@@ -5,7 +5,6 @@ import {ENV} from '../../../constants/Constants';
 import {ACTIONS} from '../../../constants/JobAction';
 
 import JobDetails from '../../JobDetails/JobDetails';
-
 import './JobDetailsContainer.scss';
 
 const JobDetailsContainer = () => {
@@ -26,11 +25,9 @@ const JobDetailsContainer = () => {
                 })
             } else {
                 //  If we're not in dev no mode, there no reason jobs get updated
-                async function fetchData() {
-                    const response = await fetchJobById(id)
-                    setJob(response)
+                const response = await fetchJobById(id)
+                setJob(response)
 
-                }
             }
         } 
     }, [])
