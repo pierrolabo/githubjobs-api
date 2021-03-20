@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import {JobsContextProvider} from './hooks/JobsContext/JobsContext'
-
+import useScrollToTop from './hooks/useScrollToTop/useScrollToTop';
 import JobsContainer from './components/Container/JobsContainer/JobsContainer';
 import JobDetailsContainer from './components/Container/JobDetailsContainer/JobDetailsContainer';
 import Header from './components/Header/Header';
@@ -14,7 +14,7 @@ function App() {
       <Header></Header>
       <JobsContextProvider>
       <Router>
-
+      <useScrollToTop/>
       <Switch>
         <Route path="/details/:id">
           <JobDetailsContainer/>
