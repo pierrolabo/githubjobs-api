@@ -110,19 +110,18 @@ ul {
                 height: 100%;
                 border-radius: 15px;
                 @media(min-width: $breakpoint-tablet) {
-                   
                     border-radius: 0;
                  }
-            }
-            &.fallback--companyLogo {
-                //display: none !important;
-                img {
+                 &.fallback--companyLogo {
+                    //display: none !important;
                     display: flex;
                     width: 100%;
                     height: 100%;
                     border-radius: 15px;
-                    background: $color-button-default
+                    background: $color-button-default !important;
+                    border-radius: 0;
                 }
+                
             }
         }
         &__info {

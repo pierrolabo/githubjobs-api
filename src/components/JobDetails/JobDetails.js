@@ -6,13 +6,14 @@ const JobDetails = ({id, company, company_logo, company_url, title, location, ty
     const APPLICATION_URL = extractURL(how_to_apply)
     const TIME_ELAPSED = getRelativeTimeFromNow(created_at)
     const URI = extractURI(company_url)
+    console.log(company_logo)
     return (
         <>
         <main className="jobdetails__container">
 
             <section className="jobdetails__header">
                 <div className="jobdetails__header__companyLogo">
-                <img className={company_logo ? "" : ".fallback--companyLogo"} src={company_logo ? company_logo : ""} alt={`${company_logo ? `${company_logo} logo` : ""}`}/>
+                <img className={company_logo ? "" : "fallback--companyLogo"} src={company_logo ? company_logo : ""} alt={`${company_logo ? `${company_logo} logo` : ""}`}/>
                 </div>
                 <div className="jobdetails__header__info">
                 <div className="jobdetails__header__info--title">
