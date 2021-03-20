@@ -113,20 +113,24 @@ const JobsContextProvider = (props) => {
             dispatch({type: ACTIONS.IS_LOADING_NEXT_PAGE, payload: {isLoadingNextPage: true}})
             
            const jobsNextPage = await fetchApiWithParameters({...payload, loadNextPage: true})
+            //  We got error with cors.bridge.cc sometimes
+            //  avoid dispatching so we load more later
+            if(jobsNextPage) {
+                //  Grab the jobs we didn't set in indexedJobs
+                const newJobs = [...jobs,...jobsNextPage]
+                const newIndexedJobs = [...indexedJobs, ...newJobs.slice(jobIndex, jobIndex + 12)]  
+     
+                dispatch({
+                    type: ACTIONS.SET_INDEXED_JOBS_NEXT_PAGE,
+                    payload: {
+                        jobs: newJobs,
+                        indexedJobs: newIndexedJobs,
+                        jobIndex: jobIndex + 12,
+                        page: page + 1
+                    }
+                })   
 
-           //  Grab the jobs we didn't set in indexedJobs
-           const newJobs = [...jobs,...jobsNextPage]
-           const newIndexedJobs = [...indexedJobs, ...newJobs.slice(jobIndex, jobIndex + 12)]  
-
-           dispatch({
-               type: ACTIONS.SET_INDEXED_JOBS_NEXT_PAGE,
-               payload: {
-                   jobs: newJobs,
-                   indexedJobs: newIndexedJobs,
-                   jobIndex: jobIndex + 12,
-                   page: page + 1
-               }
-           })   
+            }
            dispatch({type: ACTIONS.IS_LOADING_NEXT_PAGE, payload: {isLoadingNextPage: false}})
 
         }
@@ -212,6 +216,10 @@ const JobsContextProvider = (props) => {
                     })
                 }
                
+            })
+            .catch(err => {
+                console.log("Error Fetching ressource: ", err)
+                return null;
             })
     }
     return (
