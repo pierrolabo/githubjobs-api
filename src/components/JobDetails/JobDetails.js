@@ -1,14 +1,6 @@
 
-import githubjobsDataParser from '../../utils/githubjobsDataParser';
-
 import './JobDetails.scss'
 const JobDetails = ({id, company, company_logo, company_url, title, location, type, description, how_to_apply}) => {
-    const root = githubjobsDataParser(description)
-    //console.log(root)
-    console.log("mounted")
-    
-    //  Either a p tag finish by ":" either it's an h2 either it have <strong> in it
-    //  next element is a ul or ol
     how_to_apply = `<h3 className="jobdetails__howtoapply--title jobsdetails--title">How to Apply</h3>` + how_to_apply
     return (
         <>
@@ -49,7 +41,7 @@ const JobDetails = ({id, company, company_logo, company_url, title, location, ty
                    
                   
                 </div>
-                <div className="jobdetails__description" dangerouslySetInnerHTML={{__html: root}}>
+                <div className="jobdetails__description" dangerouslySetInnerHTML={{__html: description}}>
                     {
                         /*
                 <p className="jobdetails--text">
