@@ -24,7 +24,13 @@ const JobsContainer = () => {
     return (
         <main>
             <div className="jobs__container">
+            {
+            !isLoading && indexedJobs.length === 0 && (<div className="jobs__error">
+             <h2>No Results Found</h2>
+             </div>)
+            }
                 <div className="jobs">
+                    
                     {
                         isLoading && Array(12).fill(0).map((item, index) => {
                             return <CardJobSkeleton key={index}/>
