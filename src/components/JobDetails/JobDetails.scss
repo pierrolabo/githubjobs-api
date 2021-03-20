@@ -63,15 +63,7 @@ ul {
         font-weight: bold;
         margin: 28px 0;
     }
-    &--text {
-        line-height: 26px;
-            font-size: 16px;
-            color: $color-dark-grey;
-            margin: 36px 0;
-            body.dark-mode &{
-                color: $color-grey;
-            }
-    }
+    
     &__header {
         background-color: #fff;
         position: relative;
@@ -80,6 +72,7 @@ ul {
         align-items: center;
         min-width: 327px;
         //max-height: 205px;
+        width: 100%;
         height: 205px;
         border-radius: 6px;
     transform: translateY(-18px);
@@ -89,13 +82,13 @@ ul {
         @media(min-width: $breakpoint-tablet) {
             flex-direction: row;
             height: 140px;
-            min-width: 689px;
+            //min-width: 689px;
     transform: translateY(-40px);
 
         }
         @media(min-width: $breakpoint-desktop) {
             height: 140px;
-            min-width: 730px;
+            max-width: 730px;
 
         }
         &__companyLogo {
@@ -169,7 +162,7 @@ ul {
             border: none;
             font-size: 16px;
             height: 48px;
-            //width: 147px;
+            width: 147px;
             border-radius: 6px;
             min-height: 48px;
             margin-bottom: 26px;
@@ -179,19 +172,23 @@ ul {
                 color: #fff;
             }
             body.dark-mode &{
-                background-color: #1f273f;
+                background-color: #303642;
+                color: #fff;
                 &:hover {
                     background-color: #525861;
                 }
             }
             @media(min-width: $breakpoint-tablet) {
                 margin-top: 27px;
-                //margin-right: 41px;
-                margin-right: 27px;
+                margin-right: 24px;
+                width: 100%;
+            min-width: 141px;
+    
                 max-width: 141px;
-                width: 141px !important;
+
 
             }
+          
         }
     }
     &__content {
@@ -255,49 +252,50 @@ ul {
                 align-items: center;
                 @media(min-width: $breakpoint-tablet) {
                     height: 87px;
+                    
                 }
                
                 &--buttonapply {
                     margin: 32px 0;
                     height: 48px;
-                    //min-width: 279px;
+                    width: 279px;
         
                     border: none;
                     border-radius: 6px;
                     background-color: $color-button-default;
                     color: #fff;
                     font-weight: bold;
-                    @media(min-width: $breakpoint-tablet) {
-                        max-width: 141px;
-                        width: 141px !important;
-                    }
                     &:hover {
                         cursor: pointer;
-                        color: #fff;
+                        background-color: #939bf4;
                     }
-                    body.dark-mode &{
-                        &:hover {
-                            background-color: #939bf4;
-                        }
+                    
+                    @media(min-width: $breakpoint-tablet) {
+                        width: 100%;
+                    min-width: 141px;
+
+                        max-width: 141px;
                     }
                 }
             }
         }
-        &__apply {
-            display: flex;
-            justify-content: center;
-        }
+      
 
     }
     &__description {
-        
-        p {
+      
+        & p {
             line-height: 26px;
-            font-size: 16px;
-            color: $color-dark-grey;
-            margin: 36px 0;
+                font-size: 16px;
+                color: $color-dark-grey;
+                margin: 36px 0;
+                body.dark-mode &{
+                    color: $color-grey;
+                }
         }
-        
+        h2 {
+            margin: 34px 0;
+        }
         &--link {
             font-size: 16px;
             font-weight: bold;
@@ -330,15 +328,16 @@ ul {
         &--title {
             font-weight: bold;
         }
-        &--text {
+        & p {
             font-size: 16px;
             line-height: 26px;
         }
-        &--link {
+        & a {
             text-decoration: none;
             font-size: 16px;
             line-height: 26px;
             color: #fff;
+            border-bottom: 1px solid #fff;
             font-weight: bold;
             
             
@@ -377,8 +376,7 @@ ul {
             @media(min-width: $breakpoint-desktop) {
                 justify-content: space-between;
                 max-width: 730px;
-            padding: 0 0;
-
+                    padding: 0 0;
             }
             &__info {
                 display: flex;
@@ -408,6 +406,10 @@ ul {
                     display: flex;
                     justify-content: center;
                     align-items: center;
+                    &:hover {
+                        cursor: pointer;
+                        background-color: #939bf4;
+                    }
                     @media(min-width: $breakpoint-tablet ) {
                         max-width: 141px;
                         width: 141px !important;
@@ -415,12 +417,7 @@ ul {
                     &:hover {
                         cursor: pointer;
                     }
-                    body.dark-mode &{
-                        &:hover {
-                            background-color: #939bf4;
-                        }
-                    }
-                    
+                   
                 }
             }
         }

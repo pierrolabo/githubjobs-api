@@ -15,7 +15,7 @@ const Filter = () => {
   const {state} = useContext(JobsContext);
   const {filterBy} = state;
    const {isShowing, toggleModal} = useModal();
-   const { height, width } = useWindowDimensions();
+   const {width } = useWindowDimensions();
 
 
    //   Trigger reducer to query API with user defined parameters
