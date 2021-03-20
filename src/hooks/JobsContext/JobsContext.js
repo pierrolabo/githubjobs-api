@@ -40,8 +40,8 @@ const jobsReducer = (jobs, action) => {
             jobs.jobIndex = action.payload.jobIndex; 
             jobs.page = action.payload.page;
             return;
-        default:
-            return jobs;
+            default:
+                return jobs;
 
     }
 }
@@ -117,7 +117,7 @@ const JobsContextProvider = (props) => {
            //  Grab the jobs we didn't set in indexedJobs
            const newJobs = [...jobs,...jobsNextPage]
            const newIndexedJobs = [...indexedJobs, ...newJobs.slice(jobIndex, jobIndex + 12)]  
-           
+
            dispatch({
                type: ACTIONS.SET_INDEXED_JOBS_NEXT_PAGE,
                payload: {
