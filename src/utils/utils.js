@@ -39,17 +39,20 @@ const getRelativeTimeFromNow = (time) => {
             case "hour": 
                 finalDate  =`${dateNumber}h ago`
                 break;
-                case "minutes": 
+            case "minutes": 
+            case "minute":
                 finalDate  =`${dateNumber}m ago`
                 break;
             case "day" : 
             case "days":
                 finalDate  =`${dateNumber}d ago`
                 break;
-            case "weeks":     
+            case "weeks":  
+            case "week":   
                 finalDate  =`${dateNumber}w ago`
                 break;
-                case "months":     
+                case "months": 
+                case "month":    
                 finalDate  =`${dateNumber}mo ago`
                 break;    
             default:
@@ -63,3 +66,30 @@ const getRelativeTimeFromNow = (time) => {
 }
 
 export {extractURL, getRelativeTimeFromNow, extractURI}
+
+/*
+
+A dateCategory isn't handled correctly  
+Array(3) [ "a", "month", "ago" ]
+utils.js:56
+Error: getRelativeTimeFromNow  
+Array(3) [ "a", "month", "ago" ]
+utils.js:60
+A dateCategory isn't handled correctly  
+Array(3) [ "a", "month", "ago" ]
+utils.js:56
+Error: getRelativeTimeFromNow  
+Array(3) [ "a", "month", "ago" ]
+utils.js:60
+A dateCategory isn't handled correctly  
+Array(3) [ "a", "month", "ago" ]
+utils.js:56
+Error: getRelativeTimeFromNow  
+Array(3) [ "a", "month", "ago" ]
+utils.js:60
+A dateCategory isn't handled correctly  
+Array(3) [ "a", "month", "ago" ]
+utils.js:56
+Error: getRelativeTimeFromNow  
+Array(3) [ "a", "month", "ago" ]
+*/
