@@ -295,6 +295,9 @@ ul {
                     color: $color-grey;
                 }
         }
+        h2 {
+            margin: 34px 0;
+        }
         &--link {
             font-size: 16px;
             font-weight: bold;
@@ -375,6 +378,7 @@ ul {
             @media(min-width: $breakpoint-desktop) {
                 justify-content: space-between;
                 max-width: 730px;
+                    padding: 0 0;
             }
             &__info {
                 display: flex;
@@ -411,6 +415,7 @@ ul {
                     @media(min-width: $breakpoint-tablet ) {
                         width: 141px;
                     }
+                   
                 }
             }
         }
