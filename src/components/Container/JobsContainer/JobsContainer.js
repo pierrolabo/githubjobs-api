@@ -17,8 +17,10 @@ const JobsContainer = () => {
         dispatch({type: ACTIONS.LOAD_MORE, payload: {...state}})
     }
     useEffect(() => {
-        getJobs()
-    }, [])
+        if(jobs.length === 0) {
+            getJobs()
+        }
+    }, [getJobs])
     return (
         <main>
             <div className="jobs__container">
