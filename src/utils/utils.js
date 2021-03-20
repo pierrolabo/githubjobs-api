@@ -2,7 +2,6 @@ import moment from 'moment';
 
 const extractURL = (str) => {
     const url = str.match(/<a\s+(?:[^>]*?\s+)?href=(["'])(.*?)\1/);
-    console.log("extract url: ", url)
     if(url === null) {
         return null
     } else {
@@ -10,9 +9,18 @@ const extractURL = (str) => {
     }
 }
 
+const extractURI = (str) => {
+        if(str === undefined || str === 'undefined') return ""
+        const uri = /^(?:[^:]+:\/\/(?:[^@\/?]+@)?([^:\/?]+))?/.exec(str)[1]
+        return uri
+}
 const getRelativeTimeFromNow = (time) => {
     let finalDate = '';
     const elapsedTime = moment(time).fromNow().split(' ');
+    //  Handle "a few seconds ago case"
+    if(elapsedTime[1] === "few") {
+        return `1${elapsedTime[2]}`
+    }
     try {
         //  A number that define a category
         let dateNumber = elapsedTime[0];
@@ -23,7 +31,11 @@ const getRelativeTimeFromNow = (time) => {
         //  Represent hours, days, weeks, month, year
         const dateCategory = elapsedTime[1]
         switch(dateCategory) {
-            case "hours": 
+            case "seconds":
+            case "second":
+                finalDate  =`${dateNumber}s ago`
+            break;
+            case "hours":
             case "hour": 
                 finalDate  =`${dateNumber}h ago`
                 break;
@@ -50,4 +62,4 @@ const getRelativeTimeFromNow = (time) => {
     return finalDate;
 }
 
-export {extractURL, getRelativeTimeFromNow}
+export {extractURL, getRelativeTimeFromNow, extractURI}
