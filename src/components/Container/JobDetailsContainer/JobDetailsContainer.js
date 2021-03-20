@@ -1,7 +1,7 @@
 import {useContext, useEffect, useState} from 'react';
 import {useParams} from "react-router-dom";
 import {JobsContext, DispatchContext} from '../../../hooks/JobsContext/JobsContext';
-import {URL_API, ENV} from '../../../constants/Constants';
+import {ENV} from '../../../constants/Constants';
 import {ACTIONS} from '../../../constants/JobAction';
 
 import JobDetails from '../../JobDetails/JobDetails';
@@ -13,10 +13,7 @@ const JobDetailsContainer = () => {
     const {dispatch} = useContext(DispatchContext)
     let {id} = useParams()
     const [job, setJob] = useState({})
-    const [loading, isLoading] = useState(false)
     const {jobs} = state
-    //console.log(jobs, job)
-
     /*
     *   If jobs from state is empty
     *   fetch data from json if dev mode or fetch api for single position
@@ -29,8 +26,11 @@ const JobDetailsContainer = () => {
                 })
             } else {
                 //  If we're not in dev no mode, there no reason jobs get updated
-                const response = await fetchJobById(id)
-                setJob(response)
+                async function fetchData() {
+                    const response = await fetchJobById(id)
+                    setJob(response)
+
+                }
             }
         } 
     }, [])

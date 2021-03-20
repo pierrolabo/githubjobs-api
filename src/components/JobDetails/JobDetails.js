@@ -22,7 +22,7 @@ const JobDetails = ({id, company, company_logo, company_url, title, location, ty
                     <h4>versiti.org</h4>
                 </div>
                 </div>
-                <a href={company_url} target="_blank">
+                <a href={company_url} target="_blank" rel="noreferrer">
                 <button className="jobdetails__header__sitebutton">Company Site</button>
                 </a>
             </section>
