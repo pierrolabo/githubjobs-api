@@ -1,6 +1,6 @@
 import {createContext, useCallback} from "react";
 import { useImmerReducer } from 'use-immer';
-import {uniq} from 'lodash';
+import {uniqBy} from 'lodash';
 import {ACTIONS} from '../../constants/JobAction';
 import {URL_API, ENV} from '../../constants/Constants';
 
@@ -28,6 +28,7 @@ const jobsReducer = (jobs, action) => {
             const newJobs = action.payload.jobs;
             jobs.jobs = newJobs;
             jobs.indexedJobs = newJobs.length >= 12 ? newJobs.slice(0, 12) : newJobs;   
+            jobs.jobIndex = 12;
             return;
         case ACTIONS.SET_INDEXED_JOBS:
             jobs.indexedJobs = action.payload.indexedJobs;
@@ -102,8 +103,7 @@ const JobsContextProvider = (props) => {
         */
         if ( jobs.length - indexedJobs.length >= 12) {
             const newIndexedJobs = [...indexedJobs, ...jobs.slice(jobIndex, jobIndex + 12)]
-           const newIndexedJobsFiltered = uniq(newIndexedJobs, job => job.id )
-
+           const newIndexedJobsFiltered = uniqBy(newIndexedJobs, job => job.id )
             dispatch({type: ACTIONS.SET_INDEXED_JOBS, payload: {
                 indexedJobs: newIndexedJobsFiltered,
                 jobIndex: jobIndex + 12
@@ -113,17 +113,16 @@ const JobsContextProvider = (props) => {
             dispatch({type: ACTIONS.IS_LOADING_NEXT_PAGE, payload: {isLoadingNextPage: true}})
             
            const jobsNextPage = await fetchApiWithParameters({...payload, loadNextPage: true})
-           //  Grab the jobs we didn't set in indexedJobs
-           const jobsLeftover = jobs.slice(indexedJobs.length, jobs.length)
-           const newJobs = [...jobs, ...jobsLeftover, ...jobsNextPage]
-           const newIndexedJobs = [...indexedJobs, ...newJobs.slice(jobIndex, jobIndex + 12)]  
-           const newIndexedJobsFiltered = uniq(newIndexedJobs, job => job.id )
 
+           //  Grab the jobs we didn't set in indexedJobs
+           const newJobs = [...jobs,...jobsNextPage]
+           const newIndexedJobs = [...indexedJobs, ...newJobs.slice(jobIndex, jobIndex + 12)]  
+           
            dispatch({
                type: ACTIONS.SET_INDEXED_JOBS_NEXT_PAGE,
                payload: {
                    jobs: newJobs,
-                   indexedJobs: newIndexedJobsFiltered,
+                   indexedJobs: newIndexedJobs,
                    jobIndex: jobIndex + 12,
                    page: page + 1
                }
@@ -136,8 +135,8 @@ const JobsContextProvider = (props) => {
    
     const fetchApiWithParameters = async({location = '' , filterBy = '', fullTime = false, page = 1, lastSearch = '', loadNextPage = false}) => {
         
-
-        let queryString = "";
+            //  Parse the search parameters into url parameters 
+            let queryString = "";
 
             if(location !== "") {
                 if(queryString === "") {
@@ -163,15 +162,34 @@ const JobsContextProvider = (props) => {
                 }
                 queryString += `full_time=on`
             }
-            //setLastSearch(`${URL_API}${queryString}`);
-            if(loadNextPage) {
-                queryString = `${lastSearch}${lastSearch === "" ? "?" : "&"}page=${page +1}`
-            }
-            
+
+            /*
+            *
+            * There is two ways to fetch API:
+            *   -   Same search but different page
+            *   -   New search   
+            * 
+            *   same search increase page number but doesn't change lastSearch
+            *   New search reset page number and update lastSearch
+            */
+           if(loadNextPage) {
+               //   We're doing same search but we're asking for the next page
+               let nextPageParam = ""
+                if(lastSearch === "") {
+                    nextPageParam = `?page=${page+1}`
+                } else {
+                    nextPageParam = `${lastSearch}&page=${page+1}`
+                    
+                }
+                queryString = nextPageParam
+           } else {
+            //  We're doing a new search
             dispatch({
                 type: ACTIONS.SET_LAST_SEARCH,
-                payload: {lastSearch: `${queryString}`}
+                payload: {lastSearch: queryString}
             })
+           }
+          
             const URL = ENV === 'DEV' ? 'http://localhost:3000/jobs.json': `${URL_API}${queryString}`
             console.log("sending: ", URL)
             return fetch(URL, {
@@ -184,7 +202,7 @@ const JobsContextProvider = (props) => {
                 return response.json()
             })
             .then((myJson) => {
-                const jobs = uniq(myJson, job => job.id )
+                const jobs = uniqBy(myJson, job => job.id )
                 if(loadNextPage) {
                    return jobs
                 } else {
