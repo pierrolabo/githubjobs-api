@@ -1,4 +1,4 @@
-import {useEffect, useContext} from 'react';
+import React, {useEffect, useContext} from 'react';
 import {JobsContext, DispatchContext} from '../../../hooks/JobsContext/JobsContext';
 import {ACTIONS} from '../../../constants/JobAction';
 
@@ -11,13 +11,15 @@ const JobsContainer = () => {
     const {jobs, indexedJobs, isLoading, isLoadingNextPage} = state;
     const getJobs = () => {
         dispatch({type: ACTIONS.DO_SEARCH, payload: {...state}})
-
+        
     }
     const loadMore = () => {
         dispatch({type: ACTIONS.LOAD_MORE, payload: {...state}})
     }
     useEffect(() => {
-        getJobs()
+        if(jobs.length === 0) {
+            getJobs()
+        }
     }, [])
     return (
         <main>
@@ -50,4 +52,4 @@ const JobsContainer = () => {
     )
 }
 
-export default JobsContainer
+export default React.memo(JobsContainer)

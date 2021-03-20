@@ -5,7 +5,7 @@ export default function UseScrollToTop() {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    console.log("execute effect")
+    //  use setimeout tricks to scroll
     setTimeout(() => {
       window.scrollTo(0, 0);
     }, 0)
