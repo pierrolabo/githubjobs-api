@@ -21,4 +21,4 @@ Html & Sass
 
 ##  Final result
 
-See final result here => https://front-end-mentor-profile-card-component-zeta.vercel.app/
+See final result here => https://githubjobapi.netlify.app/
