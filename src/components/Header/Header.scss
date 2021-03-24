@@ -7,17 +7,19 @@
     //  Tablet
     @media(min-width: $breakpoint-tablet) {
         background-image: url(../../assets/tablet/bg-pattern-header.svg);
-        max-height: 162px;
-        height: 160px;
+        background-size: cover;
+        background-repeat: no-repeat;
     }
     //  Desktop
     @media(min-width: $breakpoint-desktop) {
         background-image: url(../../assets/desktop/bg-pattern-header.svg);
         height: 162px;
+        background-size: cover;
+        background-repeat: round;
         }
     &__container {
         padding: 32px 22px 80px 18px;
-    //  Tablet
+    //  Mobile
     @media(min-width: 375px) {
         padding: 42px 40px 93px 39px;
 
