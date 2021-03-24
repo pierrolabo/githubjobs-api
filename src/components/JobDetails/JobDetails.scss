@@ -15,6 +15,10 @@ ul {
         padding-top: 10px;
         position: relative;
     }
+    //  Fix case where there's a p tag inside a li from api
+    li > p {
+        margin: 0 0 !important;
+    }
     li::before {
         position: absolute;
         left: -8px;
@@ -32,7 +36,15 @@ ul {
     counter-reset: list-number;
     list-style-position: outside;
     //text-align: start;
+    li {
+        padding-left: 30px;
+        padding-top: 10px;
+        position: relative;
+    }
     & li::before {
+        position: absolute;
+        left: -8px;
+        top: 0;
         counter-increment: list-number;
         content: counter(list-number);
         margin-right: 10px;
@@ -43,7 +55,7 @@ ul {
         font-size:16px;
         color:$color-button-default;
         font-weight: bold;
-        padding-right: 30px;
+        //padding-right: 30px;
     }
 }
 .jobdetails__container {
