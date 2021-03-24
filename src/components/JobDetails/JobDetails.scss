@@ -10,13 +10,19 @@ ul, ol {
 }    
 ul {
     list-style: none;
-    list-style-position: outside;
+    li {
+        padding-left: 30px;
+        padding-top: 10px;
+        position: relative;
+    }
     li::before {
+        position: absolute;
+        left: -8px;
+        top: 0;
         content: ".";
         color: $color-button-default;
-        display: inline-block;
+        display: block;
         font-size: 50px;
-        padding-right: 30px;
     }
 }
 
