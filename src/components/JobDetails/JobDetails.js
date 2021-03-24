@@ -12,8 +12,8 @@ const JobDetails = ({id, company, company_logo, company_url, title, location, ty
         <main className="jobdetails__container">
 
             <section className="jobdetails__header">
-                <div className="jobdetails__header__companyLogo">
-                <img className={company_logo ? "" : "fallback--companyLogo"} src={company_logo ? company_logo : ""} alt={`${company_logo ? `${company_logo} logo` : ""}`}/>
+                <div className={company_logo ? "jobdetails__header__companyLogo" : "jobdetails__header__companyLogo fallback"}>
+                <img className={company_logo ? "" : "fallback--companyLogo"} src={company_logo ? company_logo : ""} alt={`${company_logo ? `${company} logo` : ""}`}/>
                 </div>
                 <div className="jobdetails__header__info">
                 <div className="jobdetails__header__info--title">
