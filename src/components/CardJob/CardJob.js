@@ -6,7 +6,7 @@ const CardJob = ({created_at, company, location, title, company_logo, type, id})
     return (
         <div className="jobs__card">
                    <div className={`jobs__card__companyLogo ${company_logo ? "" : "fallback--companyLogo"}`}>
-                       <img src={company_logo ? company_logo : ""} alt={`${company_logo ? `${company_logo} logo` : ""}`}/>
+                       <img src={company_logo ? company_logo : ""} alt={`${company_logo ? `${company} logo` : ""}`}/>
                    </div>
                   <div className="jobs__card__time">
                       <h4>{timeElapsed}</h4>
