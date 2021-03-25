@@ -4,12 +4,15 @@ import {JobsContext, DispatchContext} from '../../../hooks/JobsContext/JobsConte
 import {ENV} from '../../../constants/Constants';
 import {ACTIONS} from '../../../constants/JobAction';
 
+import Loader from "react-loader-spinner";
 import JobDetails from '../../JobDetails/JobDetails';
 import './JobDetailsContainer.scss';
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
 const JobDetailsContainer = () => {
     const {state} = useContext(JobsContext);
     const {dispatch} = useContext(DispatchContext)
+    const [isLoading, setIsLoading] = useState(false)
     let {id} = useParams()
     const [job, setJob] = useState({})
     const {jobs} = state
@@ -39,16 +42,30 @@ const JobDetailsContainer = () => {
     const fetchJobById = async (id) => {
         const URL = `https://cors.bridged.cc/https://jobs.github.com/positions/${id}.json`;
         console.log("fetching: ", URL)
+        setIsLoading(true)
         const response = await fetch(URL, {
             headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json'
             }
         });
-        return await response.json()
+        const res = await response.json()
+        setIsLoading(false)
+        return res;
     }
     return (
         <>
+        {
+            isLoading &&  <div style={{display: 'flex', justifyContent:'center', alignItems: 'center', width: '100%', marginTop: '20%'}}>
+                <Loader
+            type="Puff"
+            color="#00BFFF"
+            height={100}
+            width={50}
+            timeout={3000} //3 secs
+          />
+            </div>
+        }
         {
             job && (<JobDetails {...job}/>)
         }
