@@ -7,8 +7,9 @@
     //  Tablet
     @media(min-width: $breakpoint-tablet) {
         background-image: url(../../assets/tablet/bg-pattern-header.svg);
-        background-size: cover;
+        background-origin: content-box;
         background-repeat: no-repeat;
+        background-position-y: 50%;
     }
     //  Desktop
     @media(min-width: $breakpoint-desktop) {
