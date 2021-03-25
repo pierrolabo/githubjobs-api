@@ -1,2 +1,6 @@
 [build]
 command = "CI= npm run build"
+[[redirect]]
+from = "/*"
+to = "/"
+status = 200
