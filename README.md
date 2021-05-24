@@ -19,6 +19,14 @@ This project is still under construction!
 
 Html & Sass
 
+##  What did i learned
+
+1. Due to various nested components (ex: filter & filter modal ) that had to share state accross the app, i had to make my own reducer and context.
+2. In order to make async data fetching from my reducer i mimicked a redux thunk like function.
+3. I used React Portal to pop the filter modal outside of the root div of React.
+4. Fetching Data's from github jobs API is slow, so i used a skeleton.
+5. In order to implement the Load More button from the design, i had to create an index of job to print them 12 by 12 or fetch the next page if out of bond.
+
 ##  Final result
 
 See final result here => https://githubjobapi.netlify.app/
