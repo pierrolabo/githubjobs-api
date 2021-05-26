@@ -15,7 +15,7 @@
     @media(min-width: $breakpoint-desktop) {
         background-image: url(../../assets/desktop/bg-pattern-header.svg);
         height: 162px;
-        background-size: contain;
+        background-size: cover;
         background-repeat: no-repeat;
         }
     &__container {
